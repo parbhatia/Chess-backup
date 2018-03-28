@@ -5,8 +5,7 @@ using namespace std;
 int main() {
   // Command Interpreter
   string s;
-  cin >> s;
-  while (cin << s) {
+  while (cin >> s) {
     if (s == "move") {
       return 0;
     }
