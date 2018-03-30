@@ -2,6 +2,10 @@
 #include <string>
 using namespace std;
 
+
+enum Color{Black, White};
+enum Col{A,B,C,D,E,F,G,H};
+
 int main() {
   // Command Interpreter
   string cmd;
@@ -25,12 +29,22 @@ int main() {
           }
           cin >> cmd;
           if (cmd == "+") {
-            string p; // holds letter
+            string letter; // holds letter
             string pos; //holds posiiton of move
-            cin >> p;
+            cin >> letter;
             cin >> pos;
             Piece p;
+            //add piece to Board pieces vector
+            //call insert to board function
             //call setPiece functions;
+            if (letter == "K") {
+              //set white player king to piece
+              //give *King to wplayer to let him set his king
+            }
+            if (letter == "k") {
+              //set black player king to piece
+              //give *King to bplayer to let him set his king
+            }
           }
           if (cmd == "=") {
             string c; //stores color
@@ -41,13 +55,9 @@ int main() {
             string p; //
             cin >> p;
           }
-          if (cmd == "done") {
-            done_setup = true;
-          }
-          //check if player1 king is null;
-          //check if player2  king is null;
-          //set player king if K command is given
-          //give *King to player to let him set his king
+          if (cmd == "done") { done_setup = true; }
+          if white king is not NULL { w_kingset = true; }
+          if black king is not NULL { b_kingset = true; }
         }
       }
       if (cmd == "game") {
