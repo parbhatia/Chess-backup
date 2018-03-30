@@ -6,3 +6,5 @@ class Pawn: public Piece {
 	Pawn();
 	~Pawn();
 };
+
+class NINJA;
