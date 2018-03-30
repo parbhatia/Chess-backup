@@ -17,3 +17,4 @@ class Piece {
 	virtual Piece();
 	virtual ~Piece() {}
 };
+ 

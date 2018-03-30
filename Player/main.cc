@@ -2,9 +2,11 @@
 #include <string>
 using namespace std;
 
-
 enum Color{Black, White};
 enum Col{A,B,C,D,E,F,G,H};
+
+
+convert_string 
 
 int main() {
   // Command Interpreter
@@ -33,11 +35,12 @@ int main() {
             string pos; //holds posiiton of move
             cin >> letter;
             cin >> pos;
-            Piece p;
+            
             //add piece to Board pieces vector
             //call insert to board function
             //call setPiece functions;
             if (letter == "K") {
+              Piece p;
               //set white player king to piece
               //give *King to wplayer to let him set his king
             }
@@ -66,13 +69,9 @@ int main() {
         }
         //assign to player1
         //assign to player2
-
       if (cmd == "resign");
       if (cmd == "move");
     }
-
-
-
   }
   }
   catch (...) {
