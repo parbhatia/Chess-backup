@@ -10,3 +10,5 @@ class Pawn: public Piece {
 class NINJA;
 
 fu$k 0ff
+
+test
