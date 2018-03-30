@@ -2,13 +2,7 @@
 
 class Pawn: public Piece {
 	void setPassant(bool val) override;
-	void moveIsLegal(string oldPos, string newPos);
+	bool IsLegal(int oldPosX, int oldPosY, int newPosX, int newPosY) override;
+	vector<vector<int>> possiblemoves() override;
 	Pawn();
-	~Pawn();
 };
-
-class NINJA;
-
-fu$k 0ff
-
-test

@@ -3,22 +3,26 @@
 #include <string>
 using namespace std;
 
-class Piece {
-	const string color;
-	int posX;
-	int posY;
-	bool enPassant;
-	bool hasMoved;
-	bool canJump;
-	public:
-	void setMoved(bool val);
-	void setPassant(bool val);
-	void updatePos(string newPos);
-	virtual bool canCastle();
-	virtual bool moveIsLegal(string oldPos, string newPos) = 0;
-	virtual Piece();
-	virtual ~Piece() {}
-};
+void Piece::setMoved() {
+	hasMoved = true;
+}
 
+void Piece::updatePos(int newPosX, int newPosY) {
+	posX = newPosX;
+	posY = newPosY;
+}
+
+bool Piece::canJump() {
+	return false;
+}
+
+void Piece::setPassant(bool val) {
+	enPassant = val;
+}
+	
+Piece::Piece(std::string c, int posx, int posy, bool hasMoved = false, bool enPassant = false): color{c}, posx{posX}, 
+	posy{posY}, hasMoved{hasMoved}, enPassant{enPassant} {}
+
+Piece::~Piece() {}
 
 
