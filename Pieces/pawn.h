@@ -6,9 +6,3 @@ class Pawn: public Piece {
 	Pawn();
 	~Pawn();
 };
-
-class NINJA;
-
-fu$k 0ff
-
-test
