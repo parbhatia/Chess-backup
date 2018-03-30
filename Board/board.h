@@ -12,6 +12,7 @@ class Board {
 	public:
 	void insert (string pos, piece);
 	void remove (string pos);
+	void pawn_checker(); //checks if any player's pawn are on the first or last row
 	Board();
 	~Board();
 	ostream operator<<(ostream &os, const Board &b);
