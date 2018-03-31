@@ -1,4 +1,5 @@
 #include "piece.h"
+#include "pos.h"
 #include <iostream>
 #include <string>
 using namespace std;
