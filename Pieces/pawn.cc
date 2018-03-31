@@ -83,3 +83,5 @@ vector<pos>* Pawn::possiblemoves(vector<vector<Piece*>>* pieces) {
     }
   }
 }
+
+Pawn::Pawn(Color c, Pos Pos, bool hasMoved = false, bool enPassant = false): Piece(c , Pos) {}
