@@ -1,7 +1,7 @@
 #ifndef POS_H
 #define POS_h
 
-struct pos {
+struct Pos {
     int row;
     int col;
 };
