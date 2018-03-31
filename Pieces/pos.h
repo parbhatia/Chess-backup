@@ -2,8 +2,8 @@
 #define POS_h
 
 struct pos {
-    int row;
-    int column;
+    int r;
+    int c;
 };
 
 #endif
