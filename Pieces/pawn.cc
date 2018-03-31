@@ -1,5 +1,4 @@
 #include "pawn.h"
-#include "pos.h"
 using namespace std;
 
 void Pawn::setPassant(bool val) {
