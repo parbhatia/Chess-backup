@@ -4,7 +4,24 @@
 using namespace std;
 
 enum Color{Black, White};
-enum Col{A,B,C,D,E,F,G,H};
+enum Col{
+  A=0,
+  a=0,
+  B=1,
+  b=1,
+  C=2,
+  c=2,
+  D=3,
+  d=3,
+  E=4,
+  e=4,
+  F=5,
+  f=5,
+  G=6,
+  g=6,
+  I=7,
+  i=7,
+}
 
 int main() {
   // Command Interpreter
@@ -17,6 +34,26 @@ int main() {
   bool already_setup = false;
   bool setup_conditions_met = false;
   Color turn = white // white goes first by default
+
+  //creating map of Col to make parsing col easier
+  std::map<string, Col> colmap;
+  colmap["A"] = Col::A;
+  colmap["B"] = Col::B;
+  colmap["C"] = Col::C;
+  colmap["D"] = Col::D;
+  colmap["E"] = Col::E;
+  colmap["F"] = Col::F;
+  colmap["G"] = Col::G;
+  colmap["H"] = Col::H;
+  colmap["a"] = Col::a;
+  colmap["b"] = Col::b;
+  colmap["c"] = Col::c;
+  colmap["d"] = Col::d;
+  colmap["e"] = Col::e;
+  colmap["f"] = Col::f;
+  colmap["g"] = Col::g;
+  colmap["h"] = Col::h;
+
   try {
     while (true) {
       if (cin.eof() { 
@@ -38,8 +75,7 @@ int main() {
           if (cmd == "+") {
             string letter; // holds letter
             string pos; //holds posiiton of move
-            cin >> letter;
-            cin >> pos;
+            cin >> letter >> pos;
             
             //add piece to Board pieces vector
             //call insert to board function
@@ -93,12 +129,10 @@ int main() {
             string pos2;
             string promotion;
             stringstream ss(s);
-            ss >> pos1;
-            ss >> pos2;
-            ss >> promotion;
+            ss >> pos1 >> pos2 >> promotion;
             if (promotion != "") { //handle pawn promotion
             }
-            if (turn == White) wPlayer->move(
+            if (turn == White) wPlayer->move()
             //find out who's turn it is,
             //call move on player
           }
@@ -109,29 +143,3 @@ int main() {
     
   }
 }
-
-// int main(int argc, char *argv[]) {
-//   cin.exceptions(ios::eofbit|ios::failbit);
-//   string cmd;
-//   Grid g;
-
-//   // Add code here
-
-//   try {
-//   while (true) {
-//     cin >> cmd;
-//     if (cmd == "new") {
-//       int n;
-//       cin >> n;
-//       // Add code here
-//       g.gridsize
-//     }
-//     else if (cmd == "play") {
-//       int r = 0, c = 0;
-//       cin >> r >> c;
-//       // Add code here
-//     }
-//   }
-//   }
-//   catch (ios::failure &) {}  // Any I/O failure quits
-// }
