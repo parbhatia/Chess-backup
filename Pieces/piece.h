@@ -1,7 +1,7 @@
 #include <string>
 
 class Piece {
-	const std::string color;
+	const Color color;
 	int posX;
 	int posY;
 	bool hasMoved;
