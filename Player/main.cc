@@ -85,12 +85,8 @@ int main() {
             string letter; // holds letter
             string pos; //holds posiiton of move
             cin >> letter >> pos;
-            
-            //add piece to Board pieces vector
-            //call insert to board function
-            //call setPiece functions;
+            insert (int row, int col, string letter);
             if (letter == "K") {
-              Piece p;
               //set white player king to piece
               //give *King to wplayer to let him set his king
             }
@@ -117,15 +113,16 @@ int main() {
         }
       }
       if (cmd == "game") {
+        if (!already_setup) {
+            //insert all pieces  by calling b.insert()
+
+            // no need to assign pieces to players
+        }
         while (!game_finished) {
-          if (cin.eof()) {
+          if (cin.eof()) { //if player decides to end program mid game
             end game;
             print scoreboard;
             return;
-          }
-          if (!already_setup) {
-            //call setup all
-            // no need to assign pieces to pkayers
           }
           if (cmd == "resign") {
             game_finished = true;
@@ -142,14 +139,24 @@ int main() {
 
             //find out who's turn it is,
             if (promotion != "") { //handle pawn promotion
-                try(moving;)
-                catch(invalid_move &o);
+                try{
+                  moving;
+                  notify textdisplay!
+                }
+                catch(invalid_move &o) {
+                  cout << "Invalid move" << endl;
+                }
             }
             if (turn == White) {
               wPlayer->move()
               //call move on player
-              try(moving;)
-              catch(invalid_move &o);
+              try{
+                  moving;
+                  notify textdisplay!
+                }
+                catch(invalid_move &o) {
+                  cout << "Invalid move" << endl;
+                }
           }
     }
     }

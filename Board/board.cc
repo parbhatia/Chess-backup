@@ -7,12 +7,16 @@ class Piece;
 class TextDisplay;
 
 class Board {
-	vector <Piece*> pieces; //current pieces on board
+	vector<vector <*Piece>> theBoard; //current pieces on board
 	TextDisplay* td;
 	public:
-	void insert (string pos, piece) {
+	void insert (int row, int col, string letter) {
+        if (letter == "K") {
+
+        }
         //notify TextDisplay of insert
         td->insert(string pos, piece);
+        push pieces in pieces;
     }
 	void remove (string pos) {
         //notify TextDisplay of remove
@@ -20,7 +24,13 @@ class Board {
     }
 	void pawn_checker(); //checks if any player's pawn are on the first or last row
 	void setup_all(); //setups the entire board
-	Board();
+	Board() {
+        for(int r=8, r>0. --r) {
+            for (int c=A; c<=H, ++c) {
+                pieces[8-r][c]
+            }
+        }
+    }
 	~Board();
 };
 
