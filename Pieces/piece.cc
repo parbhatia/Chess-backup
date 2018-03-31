@@ -16,9 +16,7 @@ bool Piece::canJump() {
 	return false;
 }
 
-void Piece::setPassant(bool val) {
-	enPassant = val;
-}
+void Piece::setPassant(bool val) {}
 	
 Piece::Piece(std::string c, int posx, int posy, bool hasMoved = false, bool enPassant = false): color{c}, posx{posX}, 
 	posy{posY}, hasMoved{hasMoved}, enPassant{enPassant} {}
