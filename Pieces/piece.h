@@ -8,6 +8,7 @@ class Piece {
 	public:
 	void setMoved();
 	void updatePos(pos newPos);
+	pos getPos();
 	virtual bool canJump();
 	virtual void setPassant(bool val);
 	virtual bool IsLegal(pos newPos) = 0;
