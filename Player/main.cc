@@ -99,7 +99,9 @@ int main() {
       }
       if (cmd == "game") {
         if (!already_setup) {
-            //insert all pieces  by calling b.insert()
+          //insert all pieces  by calling b.insert()
+          b.insert()
+
 
             // no need to assign pieces to players
         }

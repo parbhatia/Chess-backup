@@ -10,9 +10,9 @@ class Board {
 	vector<vector <*Piece>> theBoard; //current pieces on board
 	TextDisplay* td;
 	public:
-	void insert (int row, int col, string letter) {
+	void insert (struct pos, string letter) {
         if (letter == "K") {
-
+            theBoard[8-r][c] = new King
         }
         //notify TextDisplay of insert
         td->insert(string pos, piece);
