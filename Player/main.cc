@@ -1,12 +1,10 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 
 enum Color{Black, White};
 enum Col{A,B,C,D,E,F,G,H};
-
-
-convert_string 
 
 int main() {
   // Command Interpreter
@@ -14,12 +12,19 @@ int main() {
   Board b;
   Player *wplayer = NULL;
   Player *bplayer = NULL;
+  int wpoints = 0;
+  int bpoints = 0;
   bool already_setup = false;
   bool setup_conditions_met = false;
   Color turn = white // white goes first by default
   try {
     while (true) {
-      cin << cmd;
+      if (cin.eof() { 
+        end game;
+        print scoreboard;
+        return;
+      }
+      cin >> cmd;
       if (cmd == "setup") {
         already_setup = true;
         bool done_setup = false;
@@ -48,6 +53,7 @@ int main() {
               //set black player king to piece
               //give *King to bplayer to let him set his king
             }
+            //REDISPLAY BOARD
           }
           if (cmd == "=") {
             string c; //stores color
@@ -57,6 +63,8 @@ int main() {
           if (cmd == "-") {
             string p; //
             cin >> p;
+            REMOVE PIECE
+            //REDISPLAY BOARD
           }
           if (cmd == "done") { done_setup = true; }
           if white king is not NULL { w_kingset = true; }
@@ -64,22 +72,43 @@ int main() {
         }
       }
       if (cmd == "game") {
-        if (!already_setup) {
-          //call setup all
-        }
-        //assign to player1
-        //assign to player2
-      if (cmd == "resign");
-      if (cmd == "move");
+        while (!game_finished) {
+          if (cin.eof()) {
+            end game;
+            print scoreboard;
+            return;
+          }
+          if (!already_setup) {
+            //call setup all
+            // no need to assign pieces to pkayers
+          }
+          if (cmd == "resign") {
+            game_finished = true;
+            update points;
+          }
+          if (cmd == "move") {
+            string s;
+            getline(cin,s);
+            string pos1;
+            string pos2;
+            string promotion;
+            stringstream ss(s);
+            ss >> pos1;
+            ss >> pos2;
+            ss >> promotion;
+            if (promotion != "") { //handle pawn promotion
+            }
+            if (turn == White) wPlayer->move(
+            //find out who's turn it is,
+            //call move on player
+          }
     }
-  }
+    }
   }
   catch (...) {
     
   }
 }
-
-
 
 // int main(int argc, char *argv[]) {
 //   cin.exceptions(ios::eofbit|ios::failbit);
