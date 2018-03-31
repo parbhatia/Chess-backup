@@ -12,7 +12,7 @@ void Piece::updatePos(pos newPos) {
 	Pos.col = newPos.col;
 }
 
-pos Piece::getPos() {
+Pos Piece::getPos() {
 	return Pos;
 }
 
@@ -22,5 +22,5 @@ bool Piece::canJump() {
 
 void Piece::setPassant(bool val) {}
 	
-Piece::Piece(Color c, pos Pos, bool hasMoved = false, bool enPassant = false): color{c}, Pos{Pos}, 
+Piece::Piece(Color c, Pos Pos, bool hasMoved = false, bool enPassant = false): color{c}, Pos{Pos}, 
 	hasMoved{hasMoved}, enPassant{enPassant} {}
