@@ -1,4 +1,4 @@
-#include <string>
+#include "pos.h"
 
 class Piece {
 	const Color color;
