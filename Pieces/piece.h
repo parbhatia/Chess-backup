@@ -2,18 +2,16 @@
 
 class Piece {
 	const Color color;
-	int posX;
-	int posY;
+	pos Pos;
 	bool hasMoved;
 	bool enPassant;
 	public:
 	void setMoved();
-	void updatePos(int newPosX, int newPosY);
+	void updatePos(pos newPos);
 	virtual bool canJump();
 	virtual void setPassant(bool val);
-	virtual bool IsLegal(int newPosX, int newPosY) = 0;
-	virtual vector<vector<int>> possiblemoves() = 0;
-	virtual Piece(std::string c, int posx, int posy, bool hasMoved, bool enPassant);
+	virtual bool IsLegal(pos newPos) = 0;
+	virtual vector<pos> possiblemoves() = 0;
+	virtual Piece(Color c, pos Pos, bool hasMoved, bool enPassant);
 	~Piece();
 };
- 
