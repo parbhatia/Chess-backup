@@ -14,4 +14,5 @@ class Piece {
 	virtual bool IsLegal(pos newPos) = 0;
 	virtual vector<pos> possiblemoves() = 0;
 	virtual Piece(Color c, pos Pos, bool hasMoved, bool enPassant);
+	//No need a destructor since there is no heap allocated field and default dest is enough
 };
