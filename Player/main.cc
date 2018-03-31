@@ -3,6 +3,15 @@
 #include <sstream>
 using namespace std;
 
+
+//add more error classes here, then transfer them to seperate error file
+//throw objects of these types whenever you see fit
+//remember to throw by value, catch by reference
+// - par
+
+class invalid_move {}; //for catching bad input
+
+
 enum Color{Black, White};
 enum Col{
   A=0,
@@ -19,8 +28,8 @@ enum Col{
   f=5,
   G=6,
   g=6,
-  I=7,
-  i=7,
+  H=7,
+  h=7,
 }
 
 int main() {
@@ -130,11 +139,17 @@ int main() {
             string promotion;
             stringstream ss(s);
             ss >> pos1 >> pos2 >> promotion;
-            if (promotion != "") { //handle pawn promotion
-            }
-            if (turn == White) wPlayer->move()
+
             //find out who's turn it is,
-            //call move on player
+            if (promotion != "") { //handle pawn promotion
+                try(moving;)
+                catch(invalid_move &o);
+            }
+            if (turn == White) {
+              wPlayer->move()
+              //call move on player
+              try(moving;)
+              catch(invalid_move &o);
           }
     }
     }
