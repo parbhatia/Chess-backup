@@ -24,5 +24,3 @@ void Piece::setPassant(bool val) {}
 	
 Piece::Piece(Color c, pos Pos, bool hasMoved = false, bool enPassant = false): color{c}, Pos{Pos}, 
 	hasMoved{hasMoved}, enPassant{enPassant} {}
-
-Piece::~Piece() {}
