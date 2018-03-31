@@ -14,23 +14,15 @@ class invalid_move {}; //for catching bad input
 
 enum Color{Black, White};
 enum Col{
-  A=0,
   a=0,
-  B=1,
   b=1,
-  C=2,
   c=2,
-  D=3,
   d=3,
-  E=4,
   e=4,
-  F=5,
   f=5,
-  G=6,
   g=6,
-  H=7,
   h=7,
-}
+};
 
 int main() {
   // Command Interpreter
@@ -45,23 +37,15 @@ int main() {
   Color turn = white // white goes first by default
 
   //creating map of Col to make parsing col easier
-  std::map<string, Col> colmap;
-  colmap["A"] = Col::A;
-  colmap["B"] = Col::B;
-  colmap["C"] = Col::C;
-  colmap["D"] = Col::D;
-  colmap["E"] = Col::E;
-  colmap["F"] = Col::F;
-  colmap["G"] = Col::G;
-  colmap["H"] = Col::H;
-  colmap["a"] = Col::a;
-  colmap["b"] = Col::b;
-  colmap["c"] = Col::c;
-  colmap["d"] = Col::d;
-  colmap["e"] = Col::e;
-  colmap["f"] = Col::f;
-  colmap["g"] = Col::g;
-  colmap["h"] = Col::h;
+  std::map<char, Col> colmap;
+  colmap['a'] = Col::a;
+  colmap['b'] = Col::b;
+  colmap['c'] = Col::c;
+  colmap['d'] = Col::d;
+  colmap['e'] = Col::e;
+  colmap['f'] = Col::f;
+  colmap['g'] = Col::g;
+  colmap['h'] = Col::h;
 
   try {
     while (true) {
@@ -83,9 +67,10 @@ int main() {
           cin >> cmd;
           if (cmd == "+") {
             string letter; // holds letter
-            string pos; //holds posiiton of move
-            cin >> letter >> pos;
-            insert (int row, int col, string letter);
+            char col; //col pos
+            char row; //row pos
+            cin >> letter >> col >> row;
+            insert (row, colmap.at(col), letter);
             if (letter == "K") {
               //set white player king to piece
               //give *King to wplayer to let him set his king

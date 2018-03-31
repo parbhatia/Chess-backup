@@ -27,7 +27,7 @@ class Board {
 	Board() {
         for(int r=8, r>0. --r) {
             for (int c=A; c<=H, ++c) {
-                pieces[8-r][c]
+                theBoard[8-r][c] = NULL;
             }
         }
     }
