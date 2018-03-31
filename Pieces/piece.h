@@ -14,5 +14,4 @@ class Piece {
 	virtual bool IsLegal(pos newPos) = 0;
 	virtual vector<pos> possiblemoves() = 0;
 	virtual Piece(Color c, pos Pos, bool hasMoved, bool enPassant);
-	virtual ~Piece();
 };
