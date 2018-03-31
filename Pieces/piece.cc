@@ -7,9 +7,13 @@ void Piece::setMoved() {
 	hasMoved = true;
 }
 
-void Piece::updatePos(int newPosX, int newPosY) {
-	posX = newPosX;
-	posY = newPosY;
+void Piece::updatePos(pos newPos) {
+	Pos.row = newPos.row;
+	Pos.col = newPos.col;
+}
+
+pos Piece::getPos() {
+	return Pos;
 }
 
 bool Piece::canJump() {
@@ -18,9 +22,7 @@ bool Piece::canJump() {
 
 void Piece::setPassant(bool val) {}
 	
-Piece::Piece(std::string c, int posx, int posy, bool hasMoved = false, bool enPassant = false): color{c}, posx{posX}, 
-	posy{posY}, hasMoved{hasMoved}, enPassant{enPassant} {}
+Piece::Piece(Color c, pos Pos, bool hasMoved = false, bool enPassant = false): color{c}, Pos{Pos}, 
+	hasMoved{hasMoved}, enPassant{enPassant} {}
 
 Piece::~Piece() {}
-
-
