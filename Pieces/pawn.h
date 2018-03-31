@@ -1,4 +1,5 @@
 #include "piece.h"
+#include "pos.h"
 
 class Pawn: public Piece {
 	void setPassant(bool val) override;
