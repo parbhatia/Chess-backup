@@ -1,4 +1,5 @@
 #include "piece.h"
+#include "pos.h"
 
 class Rook: public Piece {
 	void moveIsLegal(string oldPos, string newPos);
