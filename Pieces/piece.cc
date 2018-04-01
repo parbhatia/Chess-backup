@@ -18,7 +18,7 @@ Pos Piece::getPos() {
 	return Pos;
 }
 
-bool Piece:getPassant() {
+bool Piece::getPassant() {
 	return false;
 }
 
