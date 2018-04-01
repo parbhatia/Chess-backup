@@ -5,7 +5,7 @@ void Pawn::setPassant(bool val) {
   enPassant = val;
 }
 
-bool Pawn::IsLegal(pos newPos, vector<vector<Piece*>>* pieces) {
+bool Pawn::IsLegal(Pos newPos, vector<vector<Piece*>>* pieces) {
   if(color == Black) {
     if(((Pos.col == newPos.col) && (Pos.row == (newPos.row - 1)) && (pieces[newPos.row][newPos.col] == nullptr)) ||  //1 forward
        ((hasMoved == false) && (Pos.col == newPos.col) && (Pos.row == (newPos.row - 2)) &&   //2 forward 
@@ -31,7 +31,7 @@ bool Pawn::IsLegal(pos newPos, vector<vector<Piece*>>* pieces) {
 
       
        
-vector<pos> Pawn::getPossibleMoves(vector<vector<Piece*>>* pieces) {
+vector<Pos> Pawn::getPossibleMoves(vector<vector<Piece*>>* pieces) {
   vector<pos> vec = nullptr;
   
   if(color == Black) {
