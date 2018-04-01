@@ -1,14 +1,14 @@
 #include "player.h"
 #include "pos.h"
 
-bool isChecked(King* k, vector<Piece*>* pieces) {
+bool isChecked(King* k, vector<Piece*> pieces) {
 	const Pos KingPos = k->getPos();
 	for(auto &p:pieces) { //going through every piece on board
 		if(p == NULL) continue; //skipping empty pieces
 		if (color == p->getColor()) continue; //skipping player's pieces
 		/*if enemy's piece && piece attacks king,
 		  king is checked and we return true:*/
-		if (p->IsLegal(KingPos, pieces)){
+		if (p->IsLegal(KingPos, p)){
 			return true;
 		}
 	}
