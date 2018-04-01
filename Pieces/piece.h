@@ -1,3 +1,6 @@
+#ifndef PIECE_H
+#define PIECE_H
+
 #include "pos.h"
 
 class Piece {
@@ -16,3 +19,5 @@ class Piece {
 	virtual Piece(Color c, Pos Pos, bool hasMoved, bool enPassant);
 	//No need a destructor since there is no heap allocated field and default dest is enough
 };
+
+#endif
