@@ -3,13 +3,45 @@
 #include <sstream>
 using namespace std;
 
-
-//add more error classes here, then transfer them to seperate error file
-//throw objects of these types whenever you see fit
-//remember to throw by value, catch by reference
-// - par
-
+//error classes
+//throwing by value, catching by reference ;)
 class invalid_move {}; //for catching bad input
+//transfer to seperate error file
+
+//piece positions for a standard game of chess
+//move to seperate file later
+Pos N1={7,1}
+Pos B1={7,2};
+Pos Q={7,3};
+Pos K={7,4};
+Pos B2={7,5};
+Pos N2={7,6}
+Pos R2={7,7};
+Pos P1={6,0};
+Pos P2={6,1}
+Pos P3={6,2};
+Pos P4={6,3};
+Pos P5={6,4};
+Pos P6={6,5};
+Pos P7={6,6}
+Pos P8={6,7};
+
+Pos r1={0,0};
+Pos n1={0,1}
+Pos b1={0,2};
+Pos q={0,3};
+Pos k={0,4};
+Pos b2={0,5};
+Pos n2={0,6}
+Pos r2={0,7};
+Pos p1={1,0};
+Pos p2={1,1}
+Pos p3={1,2};
+Pos p4={1,3};
+Pos p5={1,4};
+Pos p6={1,5};
+Pos p7={1,6}
+Pos p8={1,7};
 
 
 enum Color{Black, White};
@@ -36,7 +68,7 @@ int main() {
   bool setup_conditions_met = false;
   Color turn = white // white goes first by default
 
-  //creating map of Col to make parsing col easier
+  //creating map of column commands to make parsing column positions easier
   std::map<char, Col> colmap;
   colmap['a'] = Col::a;
   colmap['b'] = Col::b;
@@ -46,7 +78,6 @@ int main() {
   colmap['f'] = Col::f;
   colmap['g'] = Col::g;
   colmap['h'] = Col::h;
-
   try {
     while (true) {
       if (cin.eof() { 
@@ -99,11 +130,43 @@ int main() {
       }
       if (cmd == "game") {
         if (!already_setup) {
-          //insert all pieces  by calling b.insert()
-          b.insert()
+          //inserting white player pieces
+          b.insert(R1,'R');
+          b.insert(N1,'N');
+          b.insert(B1,'B');
+          b.insert(Q,'Q');
+          b.insert(K,'K');
+          b.insert(B2,'B');
+          b.insert(N2,'N');
+          b.insert(R2,'R');
+          b.insert(P1,'P');
+          b.insert(P2,'P');
+          b.insert(P3,'P');
+          b.insert(P4,'P');
+          b.insert(P5,'P');
+          b.insert(P6,'P');
+          b.insert(P7,'P');
+          b.insert(P8,'P');
 
+          //inserting black player pieces
+          b.insert(r1,'r');
+          b.insert(n1,'n');
+          b.insert(b1,'b');
+          b.insert(q,'q');
+          b.insert(k,'k');
+          b.insert(b2,'b');
+          b.insert(n2,'n');
+          b.insert(r2,'r');
+          b.insert(p1,'p');
+          b.insert(p2,'p');
+          b.insert(p3,'p');
+          b.insert(p4,'p');
+          b.insert(p5,'p');
+          b.insert(p6,'p');
+          b.insert(p7,'p');
+          b.insert(p8,'p');
 
-            // no need to assign pieces to players
+          // no need to assign pieces to players
         }
         while (!game_finished) {
           if (cin.eof()) { //if player decides to end program mid game
