@@ -13,11 +13,11 @@ class Piece {
 	Color getColor();
 	void updatePos(Pos newPos);
 	Pos getPos();
-	virtual bool canJump();
 	virtual void setPassant(bool val);
 	virtual bool IsLegal(Pos newPos, vector <vector<Piece*>>* pieces) = 0;
-	virtual vector<PpOSos> getPossibleMoves(vector <vector<Piece*>>* pieces) = 0;
+	virtual vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) = 0;
 	virtual Piece(Color c, Pos Pos, bool hasMoved, bool enPassant);
+	virtual friend 
 	//No need a destructor since there is no heap allocated field and default dest is enough
 };
 
