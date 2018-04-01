@@ -1,7 +1,7 @@
 #include "pawn.h"
 using namespace std;
 
-void Pawn::setPassant(bool val) {
+void Pawn::setPassant(bool val) {    //ADD ENPASSANT CONDITION
   enPassant = val;
 }
 
