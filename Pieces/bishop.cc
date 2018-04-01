@@ -45,7 +45,7 @@ bool Bishop::IsLegal(Pos newPos, vector <vector<Piece*>>* pieces) {  //Assuming 
 }
 
 
-vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to check destination cell if it's empty or enemy
+vector<Pos> Bishop::getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to check destination cell if it's empty or enemy
   vector<Pos> vec = nullptr;
   
   for(int i = Pos.row + 1, int y = Pos.col + 1; (i <= 7) && (y <= 7); ++i, ++y) { //check right-bottom
