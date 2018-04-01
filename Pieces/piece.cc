@@ -6,7 +6,7 @@ void Piece::setMoved(bool val) {
 	hasMoved = val;
 }
 
-void Piece::updatePos(pos newPos) {
+void Piece::updatePos(Pos newPos) {
 	Pos.row = newPos.row;
 	Pos.col = newPos.col;
 }
