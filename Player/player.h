@@ -8,7 +8,6 @@ class Player {
 	Board* B;
 	King* king;
 	public:
-	bool isChecked();
 	bool LegalMoveExists();
 	void setKing(King* K);
 	King* getKing();
@@ -16,5 +15,7 @@ class Player {
 	Player(Color color, Board* B, King* king = NULL);
 	~Player();
 };
+
+bool isChecked(King* k, vector<Pieces*>* pieces);
 
 #endif
