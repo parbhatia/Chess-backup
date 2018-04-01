@@ -49,7 +49,7 @@ vector<Pos> Bishop::getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We ne
   vector<Pos> vec = nullptr;
   
   for(int i = Pos.row + 1, int y = Pos.col + 1; (i <= 7) && (y <= 7); ++i, ++y) { //check right-bottom
-    if(((pieces[i][y] == nullptr) || (pieces[i][y].color != color)) &&  //destionation cell condition
+    if(((pieces[i][y] == nullptr) || (pieces[i][y].getColor() != color)) &&  //destionation cell condition
        (IsLegal({i, y}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i,y};
     } else {
@@ -58,7 +58,7 @@ vector<Pos> Bishop::getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We ne
   }
   
   for(int i = Pos.row + 1, int y = Pos.col - 1; (i <= 7) && (y >= 0); ++i, --y) { //check left-bottom
-    if(((pieces[i][y] == nullptr) || (pieces[i][y].getColor != color)) &&  //destionation cell condition
+    if(((pieces[i][y] == nullptr) || (pieces[i][y].getColor() != color)) &&  //destionation cell condition
        (IsLegal({i, y}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i,y};
     } else {
@@ -67,7 +67,7 @@ vector<Pos> Bishop::getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We ne
   }
   
   for(int i = Pos.row - 1, int y = Pos.col + 1; (i >= 0) && (y <= 7); --i, ++y) { //check right-top
-    if(((pieces[i][y] == nullptr) || (pieces[i][y].getColor != color)) &&  //destionation cell condition
+    if(((pieces[i][y] == nullptr) || (pieces[i][y].getColor() != color)) &&  //destionation cell condition
        (IsLegal({i, y}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i,y};
     } else {
@@ -76,7 +76,7 @@ vector<Pos> Bishop::getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We ne
   }
   
   for(int i = Pos.row - 1, int y = Pos.col - 1; (i >= 0) && (y >= 0); --i, --y) { //check left-top
-    if(((pieces[i][y] == nullptr) || (pieces[i][y].getColor != color)) &&  //destionation cell condition
+    if(((pieces[i][y] == nullptr) || (pieces[i][y].getColor() != color)) &&  //destionation cell condition
        (IsLegal({i, y}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i,y};
     } else {
