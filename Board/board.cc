@@ -36,8 +36,7 @@ class Board {
     }
 
     vector<vector<*Piece>> * getPieces() { return &pieces; }
-
-
+    
 	Board() { //clears old board and sets up new 8x8 board
         if (pieces.size() > 0) pieces.clear(); //clear old board
         for(int i=0; i<8; ++i) { 

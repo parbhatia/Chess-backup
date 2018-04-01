@@ -3,13 +3,11 @@
 #include <sstream>
 using namespace std;
 
-//error classes
-//throwing by value, catching by reference ;)
-class invalid_move {}; //for catching bad input
+//ERROR CLASSES
+class invalid_move {}; //for catching invalid move
 //transfer to seperate error file
 
-//piece positions for a standard game of chess
-//move to seperate file later
+//STANDARD PIECE POSITIONS
 Pos N1={7,1}
 Pos B1={7,2};
 Pos Q={7,3};
@@ -42,7 +40,7 @@ Pos p5={1,4};
 Pos p6={1,5};
 Pos p7={1,6}
 Pos p8={1,7};
-
+//move to seperate file later
 
 enum Color{Black, White};
 enum Col{
@@ -57,19 +55,12 @@ enum Col{
 };
 
 int main() {
-  // Command Interpreter
   string cmd;
-  Board b;
-  Player *wplayer = NULL;
-  Player *bplayer = NULL;
 
-  //SCOREBOARD
+  ///SCOREBOARD///
   int wpoints = 0;
   int bpoints = 0;
-
-  bool already_setup = false;
-  bool setup_conditions_met = false;
-  Color turn = white // white goes first by default
+  ////////////////
 
   //creating map of column commands to make parsing column positions easier
   std::map<char, Col> colmap;
@@ -84,13 +75,21 @@ int main() {
 
   try {
     while (true) {
-      if (cin.eof() {
+      //////////GAME SETUP: RESETS EVERY GAME//////////
+      Board b;
+      Player *wplayer = NULL;
+      Player *bplayer = NULL;
+      bool already_setup = false;
+      bool setup_conditions_met = false;
+      color turn = white // white goes first by default
+      /////////////////////////////////////////////////
+      cin >> cmd;
+      if (cin.eof() { //end program command
         cout << "Final Score:" <, endl;
         cout << "White: " << wpoints << endl;
         cout << "Black: " << bpoints << endl;
         return;
       }
-      cin >> cmd;
       if (cmd == "setup") {
         already_setup = true;
         bool done_setup = false;
@@ -200,6 +199,8 @@ int main() {
           b.insert(p6,'p');
           b.insert(p7,'p');
           b.insert(p8,'p');
+          //set white player king to piece
+          //give *King to wplayer to let him set his king
         }
         while (!game_finished) {
           if (cin.eof()) { //if player decides to end program mid game
@@ -240,15 +241,17 @@ int main() {
               try{
                   moving;
                   notify textdisplay!
-                }
-                catch(invalid_move &o) {
+              }
+              catch(invalid_move &o) {
                   cout << "Invalid move" << endl;
-                }
+              }
+            }
           }
-    }
+        }
+      }
     }
   }
   catch (...) {
-    
+    cout << "We're sorry we didn't catch this error. Pls give part marks" << endl;
   }
 }
