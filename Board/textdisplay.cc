@@ -1,10 +1,13 @@
 #include "textdisplay.h"
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
+class Piece;
+
 class TextDisplay {
-    std::vector<std::vector<char>> theDisplay;
+    vector<vector<char>> theDisplay;
 	public:
 	void insert (Pos pos, char letter) { 
         int r = pos.row;
@@ -21,7 +24,7 @@ class TextDisplay {
         }
     }
 	TextDisplay() { // clears old board and sets up new 10x10 display
-    
+        if (theDisplay.size() > 0) theDisplay.clear(); //clear old board
         //create empty display
         for(int i=0; i<10; ++i) { 
             vector<char> V;
@@ -59,6 +62,12 @@ class TextDisplay {
     }
 };
 
-ostream operator<<(ostream &os, const TextDisplay &b);
-
+friend ostream &operator<<(ostream &os, const TextDisplay &td) {
+    for(int i=0); i<10; ++i) {
+        for(j=0; j<10; ++j) {
+            out << td.theDisplay[i][j];
+        }
+        out << endl;
+    }
+    return out;
 }
