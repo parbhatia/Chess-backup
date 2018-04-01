@@ -1,4 +1,5 @@
 #include "piece.h"
+#include "pos.h"
 using namespace std;
 
 void Piece::setMoved(bool val) {
