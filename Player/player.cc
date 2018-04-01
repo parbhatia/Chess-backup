@@ -4,7 +4,8 @@
 bool Player::isChecked() {
 	const Pos KingPos = king->getPos();
 	for(auto &p:B->getPieces()) { //going through every piece on board
-		if (color == p->getColor()) continue; //skip if player's piece
+		if(p == NULL) continue; //skipping empty pieces
+		if (color == p->getColor()) continue; //skipping player's pieces
 		/*if enemy's piece && piece attacks king,
 		  king is checked and we return true:*/
 		else (p->IsLegal(KingPos, B->getPieces())){
@@ -16,14 +17,11 @@ return false; //has checked all enemy pieces and none of them attacks player's k
 }
 
 bool Player::LegalMoveExists() {
-	for (auto &p:B->getPieces) { //each piece
-		//make sure piece belongs to player:
-		if (p.getColor == color) {
-			//gets possible moves for the piece:
+	for (auto &p:B->getPieces) {
+		//Checking for player's pieces, skipping empty cells:
+		if (p != NULL && p.getColor == color) {
 			vector <Pos> possibleMoves = p->getPossibleMoves();
-			//if no possible move exist, move on (don't really need this) (deleted)
-			/*iterating through each possible move, making the move,
-			and checking if king's still in check*/
+			//checking if any of the possible moves are legal:
 			for (auto &m:possibleMoves) {
 				/*moving piece to the possible move
 				  we're guaranteed piece is moved in legal direction*/
@@ -51,5 +49,5 @@ void Player::getKing() {
 	return king;
 }
 
-Player::Player(string color, Board* B, King* king):
+Player::Player(Color color, Board* B, King* king):
 		color{color}, B{B}, king{king	} {}
