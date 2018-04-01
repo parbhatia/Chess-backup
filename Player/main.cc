@@ -1,6 +1,17 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include "textdisplay.h"
+#include "piece.h"
+#include "player.h"
+#include "humanPlayer.h"
+#include "computerPlayer.h"
+#include "board.h"
+#include "king.h"
+#include "knight.h"
+#include "pawn.h"
+#include "queen.h"
+#include "rook.h"
 using namespace std;
 
 //ERROR CLASSES
@@ -57,7 +68,7 @@ enum Col{
 int main() {
   string cmd;
 
-  ///SCOREBOARD///
+  // SCOREBOARD //
   int wpoints = 0;
   int bpoints = 0;
   ////////////////
@@ -75,7 +86,7 @@ int main() {
 
   try {
     while (true) {
-      //////////GAME SETUP: RESETS EVERY GAME//////////
+      ///////// GAME SETUP: RESETS EVERY GAME /////////
       Board b;
       Player *wplayer = NULL;
       Player *bplayer = NULL;
@@ -162,7 +173,7 @@ int main() {
           //check if any king is in check
           //check if any pawns are on the last row
         }
-      }
+      }//end of setup
       if (cmd == "game") {
         if (!already_setup) {
           //inserting white player pieces
@@ -246,10 +257,10 @@ int main() {
                   cout << "Invalid move" << endl;
               }
             }
-          }
+          }//end of move command
         }
-      }
-    }
+      }//end of game command
+    }//end of one complete game, everything resets!
   }
   catch (...) {
     cout << "We're sorry we didn't catch this error. Pls give part marks" << endl;
