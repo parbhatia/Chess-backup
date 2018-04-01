@@ -10,8 +10,11 @@ bool Pawn::IsLegal(Pos newPos, vector<vector<Piece*>>* pieces) {
     if(((Pos.col == newPos.col) && (Pos.row == (newPos.row - 1)) && (pieces[newPos.row][newPos.col] == nullptr)) ||  //1 forward
        ((hasMoved == false) && (Pos.col == newPos.col) && (Pos.row == (newPos.row - 2)) &&   //2 forward 
         (pieces[newPos.row][newPos.col] == nullptr) && (pieces[newPos.row - 1][newPos.col] == nullptr)) ||
-       (((Pos.col == (newPos.col + 1)) || (Pos.col == (newPos.col - 1))) && (Pos.row == (newPos.row - 1)) &&   //1 diagnol
-        (pieces[newPos.row][newPos.col] != nullptr) && (pieces[newPos.row][newPos.col].color == White))) {
+       (((Pos.col == (newPos.col + 1)) || (Pos.col == (newPos.col - 1))) && (Pos.row == (newPos.row - 1)) &&   //1 diagnol move
+        ((pieces[newPos.row][newPos.col] != nullptr) && (pieces[newPos.row][newPos.col].getColor() == White)) ||  //regular attack
+        ((pieces[newPos.row][newPos.col] == nullptr) && (pieces[newPos.row - 1][newPos.col] != nullptr) &&  //enPassant
+         (pieces[newPos.row - 1][newPos.col].getColor() == White) && (pieces[newPos.row - 1][newPos.col].getPassant() == true) &&
+         (enPassant == true)))) {
       return true;
     } else {
       return false;
@@ -21,7 +24,10 @@ bool Pawn::IsLegal(Pos newPos, vector<vector<Piece*>>* pieces) {
        ((hasMoved == false) && (Pos.col == newPos.col) && (Pos.row == (newPos.row + 2)) &&   //2 forward 
         (pieces[newPos.row][newPos.col] == nullptr) && (pieces[newPos.row + 1][newPos.col] == nullptr)) ||
        (((Pos.col == (newPos.col + 1)) || (Pos.col == (newPos.col - 1))) && (Pos.row == (newPos.row + 1)) &&   //1 diagnol
-        (pieces[newPos.row][newPos.col] != nullptr) && (pieces[newPos.row][newPos.col].color == Black))) {
+        ((pieces[newPos.row][newPos.col] != nullptr) && (pieces[newPos.row][newPos.col].getColor() == Black)) ||  //regular attack
+        ((pieces[newPos.row][newPos.col] == nullptr) && (pieces[newPos.row + 1][newPos.col] != nullptr) &&  //enPassant
+         (pieces[newPos.row + 1][newPos.col].getColor() == Black) && (pieces[newPos.row + 1][newPos.col].getPassant() == true) &&
+         (enPassant == true)))) {
       return true;
     } else {
       return false;
