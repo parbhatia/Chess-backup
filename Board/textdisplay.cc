@@ -23,6 +23,20 @@ class TextDisplay {
             theDisplay[row][column] = ' ';
         }
     }
+    void move(Pos old_pos, Pos new_pos, char promo) {
+        if (promo == ' ') {
+            int old_row = old_pos.row;
+            int old_col = old_pos.col + 2;
+            int new_row = new_pos.row;
+            int new_col = new_pos.col + 2;
+            char old_char = theDisplay[old_row][old_col];
+            theDisplay[new_row][new_col] = old_char;
+            remove(old_pos);
+        } else {
+            remove(old_pos);
+            theDisplay[new_row][new_col] = promo;
+        }
+    }
 	TextDisplay() { // clears old board and sets up new 10x10 display
         if (theDisplay.size() > 0) theDisplay.clear(); //clear old board
         //create empty display

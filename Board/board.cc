@@ -10,7 +10,7 @@ class TextDisplay;
 
 class Board {
 	vector<vector<*Piece>> pieces; //all pieces on board
-	TextDisplay* td;
+	TextDisplay* td = NULL;
 	public:
 	void insert (Pos pos, char letter) {
         int r = pos.row;
@@ -45,6 +45,11 @@ class Board {
             pieces.emplace_back(P);
         }
     }
+
+    void updateTD(Pos oldpos, Pos newpos, char promo) {
+        td->move(oldpos,newpos,promotion);
+    }
+
 	~Board();
 };
 

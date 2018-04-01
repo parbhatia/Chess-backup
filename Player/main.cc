@@ -233,30 +233,60 @@ int main() {
             int oldrow;
             char newcol;
             int newrow;
-            char promotion;
+            char promotion = ' '; //need to assign promotion to ' '
             stringstream ss(s);
             ss >> oldcol >> oldrow >> newcol >> newrow >> promotion;
-            //find out who's turn it is,
-            if (promotion != "") { //handle pawn promotion
-                try{
-                  moving;
-                  notify textdisplay!
-                }
-                catch(invalid_move &o) {
-                  cout << "Invalid move" << endl;
-                }
-            }
+            Pos old_pos = {oldrow,oldcol};
+            Pos new_pos = {newrow, newcol};
+            //find out who's turn it is
             if (turn == White) {
-              wPlayer->move()
-              //call move on player
+              // if (promotion != '') { //handle pawn promotion
+              //   try{
+              //     moving;
+              //     notify textdisplay!
+              //   }
+              //   catch(invalid_move &o) {
+              //     cout << "Invalid move" << endl;
+              //   }
+              // }
+              
               try{
-                  moving;
-                  notify textdisplay!
+                  wPlayer->move(INSERT);
               }
               catch(invalid_move &o) {
                   cout << "Invalid move" << endl;
+                  break;
               }
             }
+            if (turn == Black) {
+              // if (promotion != "") { //handle pawn promotion
+              //   try{
+              //     moving;
+              //     notify textdisplay!
+              //   }
+              //   catch(invalid_move &o) {
+              //     cout << "Invalid move" << endl;
+              //   }
+              // }
+              
+              try{
+                  bPlayer->move(INSERT);
+              }
+              catch(invalid_move &o) {
+                  cout << "Invalid move" << endl;
+                  break;
+              }
+            }
+
+            ////// UPDATE TEXTDISPLAY //////
+            b.updateTD(oldpos,newpos,promotion);
+            ///// REDISPLAY TEXTDISPLAY ////
+            b>>out;
+            ///////// SWITCH TURNS /////////
+            if (turn == White) turn = Black;
+            if (turn == Black) turn = White;
+            ////////////////////////////////
+
           }//end of move command
         }
       }//end of game command
