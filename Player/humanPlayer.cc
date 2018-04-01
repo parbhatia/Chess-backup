@@ -52,6 +52,6 @@ HumanPlayer::void move(Pos oldPos, newPos, string prm){
 	}
 }
 
-HumanPlayer::HumanPlayer(string color, Board* B, King* king): Player(color, B, king) {}
+HumanPlayer::HumanPlayer(Color color, Board* B, King* king): Player(color, B, king) {}
 
 HumanPlayer::~HumanPlayer(){};
