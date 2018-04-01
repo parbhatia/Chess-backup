@@ -10,6 +10,7 @@ class Piece {
 	bool enPassant;
 	public:
 	void setMoved(bool val);
+	Color getColor();
 	void updatePos(Pos newPos);
 	Pos getPos();
 	virtual bool canJump();
