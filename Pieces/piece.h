@@ -13,6 +13,7 @@ class Piece {
 	Color getColor();
 	void updatePos(Pos newPos);
 	Pos getPos();
+	virtual bool getPassant();
 	virtual void setPassant(bool val);
 	virtual bool IsLegal(Pos newPos, vector <vector<Piece*>>* pieces) = 0;
 	virtual vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) = 0;
