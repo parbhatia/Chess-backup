@@ -38,7 +38,7 @@ HumanPlayer::void move(Pos oldPos, newPos, string prm){
 	else {
 		if(IsLegal(newPos, B->getPieces())) {
 			makeTheMove(curPiece, target, B);
-			if (IsChecked(king, B->getPieces()) == true){
+			if (isChecked(king, B->getPieces()) == true){
 				B->undo();
 				std::cout << "INVALID" << std::endl;
 			}
