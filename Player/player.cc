@@ -1,14 +1,14 @@
 #include "player.h"
 #include "pos.h"
 
-bool Player::isChecked() {
-	const Pos KingPos = king->getPos();
-	for(auto &p:B->getPieces()) { //going through every piece on board
+bool isChecked(King* k, vector<Piece*>* pieces) {
+	const Pos KingPos = k->getPos();
+	for(auto &p:pieces) { //going through every piece on board
 		if(p == NULL) continue; //skipping empty pieces
 		if (color == p->getColor()) continue; //skipping player's pieces
 		/*if enemy's piece && piece attacks king,
 		  king is checked and we return true:*/
-		else (p->IsLegal(KingPos, B->getPieces())){
+		if (p->IsLegal(KingPos, pieces)){
 			return true;
 		}
 	}
@@ -26,8 +26,8 @@ bool Player::LegalMoveExists() {
 				/*moving piece to the possible move
 				  we're guaranteed piece is moved in legal direction*/
 				makeTheMove(p, B->getPieces[m.row][m.col], B);
-				if (!isChecked()) { //legal move exists
-					//undo every move we made checking
+				if (!isChecked(king, B->getPieces())) { //legal move exists
+					//undo every move we made
 					B.undo();
 					return true;
 				}
@@ -37,11 +37,12 @@ bool Player::LegalMoveExists() {
 
 		}
 	}
+
 //found out no legal moves exists
 return false;
 }
 
-void Player::setKing(King* K) {
+void Player::setKing(King* k) {
 	king = k;
 }
 
@@ -50,4 +51,4 @@ void Player::getKing() {
 }
 
 Player::Player(Color color, Board* B, King* king):
-		color{color}, B{B}, king{king	} {}
+		color{color}, B{B}, king{king} {}
