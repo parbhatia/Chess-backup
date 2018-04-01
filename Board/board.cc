@@ -15,28 +15,29 @@ class Board {
 	void insert (Pos pos, char letter) {
         int r = pos.row;
         int c = pos.col;
-        if (letter == "R") { pieces[8-r][c] = new Rook(White,pos); }
-        else if (letter == "N") { pieces[8-r][c] = new Knight(White,pos); }
-        else if (letter == "B") { pieces[8-r][c] = new Bishop(White,pos); }
-        else if (letter == "Q") { pieces[8-r][c] = new Queen(White,pos); }
-        else if (letter == "K") { pieces[8-r][c] = new King(White,pos); }
-        else if (letter == "P") { pieces[8-r][c] = new Pawn(White,pos); }
-        else if (letter == "r") { pieces[8-r][c] = new Rook(Black,pos); }
-        else if (letter == "n") { pieces[8-r][c] = new Knight(Black,pos); }
-        else if (letter == "b") { pieces[8-r][c] = new Bishop(Black,pos); }
-        else if (letter == "q") { pieces[8-r][c] = new Queen(Black,pos); }
-        else if (letter == "k") { pieces[8-r][c] = new King(Black,pos); }
-        else { pieces[8-r][c] = new Pawn(Black,pos); } //letter is "p"
+        if (letter == "R") { pieces[r][c] = new Rook(White,pos); }
+        else if (letter == "N") { pieces[r][c] = new Knight(White,pos); }
+        else if (letter == "B") { pieces[r][c] = new Bishop(White,pos); }
+        else if (letter == "Q") { pieces[r][c] = new Queen(White,pos); }
+        else if (letter == "K") { pieces[r][c] = new King(White,pos); }
+        else if (letter == "P") { pieces[r][c] = new Pawn(White,pos); }
+        else if (letter == "r") { pieces[r][c] = new Rook(Black,pos); }
+        else if (letter == "n") { pieces[r][c] = new Knight(Black,pos); }
+        else if (letter == "b") { pieces[r][c] = new Bishop(Black,pos); }
+        else if (letter == "q") { pieces[r][c] = new Queen(Black,pos); }
+        else if (letter == "k") { pieces[r][c] = new King(Black,pos); }
+        else { pieces[r][c] = new Pawn(Black,pos); } //letter is "p"
         //notify TextDisplay of insert
         td->insert(pos,letter);
     }
-	void remove (string pos) {
+	void remove (Pos pos) {
+        pieces[r][c] = NULL;
         //notify TextDisplay of remove
-        td->remove(string pos);
+        td->remove(Pos pos);
     }
     vector<vector<*Piece>> * getPieces() { return &pieces; }
-	Board() { //clears old board and sets up new 8x8 board
-        if (pieces.size() > 0) pieces.clear(); //clear old board
+	Board() { //sets up new 8x8 board
+        td = new TextDisplay();
         for(int i=0; i<8; ++i) { 
             vector<*Pieces> P;
             for (int j=0; j<8; ++j) {
@@ -49,6 +50,8 @@ class Board {
     void updateTD(Pos oldpos, Pos newpos, char promo) {
         td->move(oldpos,newpos,promotion);
     }
+
+    bool ischeck(Pos kpos, Pos 
 
 	~Board();
 };

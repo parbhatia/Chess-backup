@@ -90,6 +90,8 @@ int main() {
       Board b;
       Player *wplayer = NULL;
       Player *bplayer = NULL;
+      Pos wking_pos = {0,0}; //will be updated by setup
+      Pos bking_pos = {0,0}; //will be updated by setup
       bool already_setup = false;
       bool setup_conditions_met = false;
       color turn = white // white goes first by default
@@ -103,20 +105,17 @@ int main() {
       }
       if (cmd == "setup") {
         already_setup = true;
-        bool done_setup = false;
         bool w_kingset = false;
         bool b_kingset = false;
-        while(!done_setup && !setup_conditions_met) {
-          if (done_setup) {
-            cout << "Setup conditions not met" << endl;
-          }
+        bool king_in_check = false;
+        while(true) {
           cin >> cmd;
           if (cmd == "+") {
             char letter; // holds letter
             char col; //col pos
             int row; //row pos
             cin >> letter >> col >> row;
-            Pos p = {row,colmap.at(col)};
+            Pos p = {8-row,colmap.at(col)};
             if (letter == "K") {
               if (w_kingset) {
                 cout << "King already assigned." << endl;
@@ -124,8 +123,11 @@ int main() {
               else {
                 b.insert(p,letter);
                 w_kingset = true;
-                //set white player king to piece
-                //give *King to wplayer to let him set his king
+                //set white player king position
+                wking_pos.row = p.row;
+                wking_pos.col = p.col;
+                //REDISPLAY BOARD
+                b >> cout;
               }
             }
             else if (letter == "k") {
@@ -134,14 +136,19 @@ int main() {
               }
               else {
                 b.insert(p,letter);
-                w_kingset = true;
-              //set black player king to piece
-              //give *King to bplayer to let him set his king
+                b_kingset = true;
+                //set black player king position
+                bking_pos.row = p.row;
+                bking_pos.row = p.col;
+                //REDISPLAY BOARD
+                b >> cout;
               }
             }
             else if (letter == "P") || letter == "p") {
               if (p.row != 0 && p.row != 7) { //checks if pawn is not in end rows
                 b.insert(p,letter);
+                //REDISPLAY BOARD
+                b >> cout;
               }
               else {
                 cout << "Invalid pawn placement." << endl;
@@ -149,9 +156,9 @@ int main() {
             }
             else {
               b.insert(p,letter);
+              //REDISPLAY BOARD
+              b >> cout;
             }
-            //REDISPLAY BOARD
-            b >> cout;
           }
           if (cmd == "=") {
             string c; //stores color
@@ -162,19 +169,56 @@ int main() {
             char col;
             int row;
             cin >> col >> row;
-            Pos p = {row,colmap.at(col)};
-            b.remove(p);
-            //REDISPLAY BOARD
-            b >> cout;
+            Pos p = {8-row,colmap.at(col)};
+            if (b.getPieces()[p.row][p.col] != NULL) { //take action only if there is a piece at pos
+              b.remove(p);
+              if ()
+              //REDISPLAY BOARD
+              b >> cout;
+            }
           }
-          if (cmd == "done") { done_setup = true; }
-          if white king is not NULL { w_kingset = true; }
-          if black king is not NULL { b_kingset = true; }
-          //check if any king is in check
-          //check if any pawns are on the last row
+          if (cmd == "done") {
+            //Check setup conditions
+            if (w.getking() == NULL){
+              cout << "White king not set." << endl;
+              w_kingset = false;
+            }
+            if (b.getking() == NULL) {
+              cout << "Black king not set." << endl;
+              b_kingset = false;
+            }
+            if (wplayer->isChecked() || bplayer->isChecked()) {
+              king_in_check = true;
+            }
+            if (!king_in_check && w_kingset && b_kingset) setup_conditions_met = true;
+            if (setup_conditions_met) {
+              break;
+            } 
+            else {
+              cout << "Setup conditions not met." << endl;
+            }
+          }
         }
+        cout << "Setup complete." << endl;
+        cout << "Please begin new game." << endl;
       }//end of setup
       if (cmd == "game") {
+        //CREATE PLAYERS
+        string w;
+        string b;
+        cin >> w >> b;
+        //White player
+        if (w == "human") { wplayer = Human(White, &b, NULL) };
+        if (w == "computer1") {};
+        if (w == "computer2") {};
+        if (w == "computer3") {};
+        if (w == "computer4") {};
+        //Black player
+        if (b == "human") { bplayer = Human(Black, &b, NULL) };
+        if (b == "computer1") {};
+        if (b == "computer2") {};
+        if (b == "computer3") {};
+        if (b == "computer4") {};
         if (!already_setup) {
           //inserting white player pieces
           b.insert(R1,'R');
@@ -210,8 +254,14 @@ int main() {
           b.insert(p6,'p');
           b.insert(p7,'p');
           b.insert(p8,'p');
-          //set white player king to piece
-          //give *King to wplayer to let him set his king
+          //Players set their king pointer
+          wplayer->setKing(b.getPieces()[7][4]);
+          bplayer->setKing(b.getPieces()[0][4]);
+        }
+        else { //already setup is true
+          //Players set their kings
+          wplayer->setKing(b.getPieces()[][]);
+          bplayer->setKing(b.getPieces()[][]);
         }
         while (!game_finished) {
           if (cin.eof()) { //if player decides to end program mid game
@@ -289,6 +339,7 @@ int main() {
 
           }//end of move command
         }
+        cout << "Please begin new game." << endl;
       }//end of game command
     }//end of one complete game, everything resets!
   }
