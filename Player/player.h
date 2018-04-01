@@ -1,22 +1,20 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <cstdbool>
-#include <string>
-
-class Board;
+#include "piece.h"
+#include "board.h"
 
 class Player {
-	bool staleMate;
-	bool checkMate;
 	const string color;
 	Board* B;
+	King* king;
 	public:
-	void setStalemate();
-	void setCheckmate();
-	bool isChecked(string kingPos);
-	void setup_all();
-	void move(string oldPos, string newPos, string permission) = 0;
-	Player();
+	bool isChecked();
+	bool LegalMoveExists();
+	void setKing(King* K);
+	King* getKing();
+	virtual void move(const Pos curPos, const Pos newPos, string prm) = 0;
+	Player(string color, Board* B, King* king = NULL);
 	~Player();
 };
+
 #endif
