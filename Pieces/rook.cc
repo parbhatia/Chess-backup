@@ -42,7 +42,7 @@ vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to ch
   vector<Pos> vec = nullptr;
   
   for(int i = Pos.col + 1; i <= 7; ++i) { //check right
-    if(((pieces[Pos.row][i] == nullptr) || (pieces[Pos.row][i].color != color)) &&  //destionation cell condition
+    if(((pieces[Pos.row][i] == nullptr) || (pieces[Pos.row][i].getColor() != color)) &&  //destionation cell condition
        (IsLegal({Pos.row, i}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i,Pos.col};
     } else {
@@ -51,7 +51,7 @@ vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to ch
   }
   
   for(int i = Pos.col - 1; i >= 0; --i) { //check left
-    if(((pieces[Pos.row][i] == nullptr) || (pieces[Pos.row][i].color != color)) &&  //destionation cell condition
+    if(((pieces[Pos.row][i] == nullptr) || (pieces[Pos.row][i].getColor != color)) &&  //destionation cell condition
        (IsLegal({Pos.row, i}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i,Pos.col};
     } else {
@@ -60,7 +60,7 @@ vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to ch
   }
   
   for(int i = Pos.row + 1; i <= 7; ++i) { //check bottom
-    if(((pieces[i][Pos.col] == nullptr) || (pieces[i][Pos.col].color != color)) &&  //destionation cell condition
+    if(((pieces[i][Pos.col] == nullptr) || (pieces[i][Pos.col].getColor != color)) &&  //destionation cell condition
        (IsLegal({i, Pos.col}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i, Pos.col};
     } else {
@@ -69,7 +69,7 @@ vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to ch
   }
   
   for(int i = Pos.row - 1; i >= 0; --i) { //check top
-    if(((pieces[i][Pos.col] == nullptr) || (pieces[i][Pos.col].color != color)) &&  //destionation cell condition
+    if(((pieces[i][Pos.col] == nullptr) || (pieces[i][Pos.col].getColor != color)) &&  //destionation cell condition
        (IsLegal({i, Pos.col}, vector <vector<Piece*>>* pieces) == true)) {
       vec.push_back = {i, Pos.col};
     } else {
