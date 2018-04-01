@@ -31,8 +31,8 @@ bool Pawn::IsLegal(pos newPos, vector<vector<Piece*>>* pieces) {
 
       
        
-vector<pos>* Pawn::possiblemoves(vector<vector<Piece*>>* pieces) {
-  vector<pos> vec = nullptr;  //ASK FUCKIN JAVID ABOUT THE POINTER RETURNING SHIT
+vector<pos> Pawn::getPossibleMoves(vector<vector<Piece*>>* pieces) {
+  vector<pos> vec = nullptr;
   
   if(color == Black) {
     if(IsLegal({Pos.row + 1, Pos.col}, vector<vector<Piece*>>* pieces) == true) {  //1 forward
@@ -81,6 +81,8 @@ vector<pos>* Pawn::possiblemoves(vector<vector<Piece*>>* pieces) {
       }
     }
   }
+  
+  return vec;
 }
 
 Pawn::Pawn(Color c, Pos Pos, bool hasMoved = false, bool enPassant = false): Piece(c , Pos) {}
