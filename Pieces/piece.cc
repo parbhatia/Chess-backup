@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-void Piece::setMoved() {
-	hasMoved = true;
+void Piece::setMoved(bool val) {
+	hasMoved = val;
 }
 
 void Piece::updatePos(pos newPos) {
