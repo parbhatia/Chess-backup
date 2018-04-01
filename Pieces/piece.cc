@@ -5,6 +5,10 @@ void Piece::setMoved(bool val) {
 	hasMoved = val;
 }
 
+Color getColor(){
+	return color;
+}
+
 void Piece::updatePos(Pos newPos) {
 	Pos.row = newPos.row;
 	Pos.col = newPos.col;
