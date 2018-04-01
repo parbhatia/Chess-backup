@@ -1,4 +1,4 @@
-#ifdef BOARD_H
+#ifndef BOARD_H
 #define BOARD_H
 #include <vector>
 
@@ -12,6 +12,8 @@ class Board {
 	public:
 	void insert (string pos, piece);
 	void remove (string pos);
+	void pawn_checker(); //checks if any player's pawn are on the first or last row
+	void setup_all(); //setups the entire board
 	Board();
 	~Board();
 	ostream operator<<(ostream &os, const Board &b);

@@ -1,7 +1,14 @@
+#ifndef BISHOP_H
+#define BISHOP_H
+
+
 #include "piece.h"
+#include "pos.h"
 
 class Bishop: public Piece {
-	void moveIsLegal (string oldPos, string newPos);
-	Bishop();
-	~Bishop();
+	bool IsLegal(Pos newPos, vector <vector<Piece*>>* pieces) override;
+	vector<pos> getPossibleMoves(vector <vector<Piece*>>* pieces) override;
+	Rook(Color c, Pos Pos, bool hasMoved, bool enPassant);
 };
+
+#endif

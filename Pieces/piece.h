@@ -1,19 +1,24 @@
-#include <bool>
-#include <string>
+#ifndef PIECE_H
+#define PIECE_H
+
+#include "pos.h"
 
 class Piece {
-	const string color;
-	int posX;
-	int posY;
-	bool enPassant;
+	const Color color;
+	Pos Pos;
 	bool hasMoved;
-	bool canJump;
+	bool enPassant;
 	public:
 	void setMoved(bool val);
-	void setPassant(bool val);
-	void updatePos(string newPos);
-	virtual bool canCastle();
-	virtual bool moveIsLegal(string oldPos, string newPos) = 0;
-	virtual Piece();
-	virtual ~Piece() {}
+	Color getColor();
+	void updatePos(Pos newPos);
+	Pos getPos();
+	virtual void setPassant(bool val);
+	virtual bool IsLegal(Pos newPos, vector <vector<Piece*>>* pieces) = 0;
+	virtual vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) = 0;
+	virtual Piece(Color c, Pos Pos, bool hasMoved, bool enPassant);
+	virtual friend ostream& operator<<(ostreeam& out, const Piece& p);
+	//No need a destructor since there is no heap allocated field and default dest is enough
 };
+
+#endif
