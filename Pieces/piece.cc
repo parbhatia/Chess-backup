@@ -18,6 +18,10 @@ Pos Piece::getPos() {
 	return Pos;
 }
 
+bool Piece:getPassant() {
+	return false;
+}
+
 void Piece::setPassant(bool val) {}
 	
 Piece::Piece(Color c, Pos Pos, bool hasMoved = false, bool enPassant = false): color{c}, Pos{Pos}, 
