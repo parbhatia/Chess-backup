@@ -34,11 +34,12 @@ bool Rook::IsLegal(Pos newPos, vector <vector<Piece*>>* pieces) {  //Assuming ne
       }
       return true;
     }
+  } else {
+    return false;
   }
-  return false;
 }
 
-vector<Pos> getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to check destination cell if it's empty or enemy
+vector<Pos> Rook::getPossibleMoves(vector <vector<Piece*>>* pieces) {  //We need to check destination cell if it's empty or enemy
   vector<Pos> vec = nullptr;
   
   for(int i = Pos.col + 1; i <= 7; ++i) { //check right
