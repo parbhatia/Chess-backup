@@ -4,7 +4,7 @@
 #include "board.h"
 
 class Player {
-	const string color;
+	const Color color;
 	Board* B;
 	King* king;
 	public:
@@ -13,7 +13,7 @@ class Player {
 	void setKing(King* K);
 	King* getKing();
 	virtual void move(const Pos curPos, const Pos newPos, string prm) = 0;
-	Player(string color, Board* B, King* king = NULL);
+	Player(Color color, Board* B, King* king = NULL);
 	~Player();
 };
 
