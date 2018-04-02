@@ -16,6 +16,7 @@
 #include "pawn.h"
 #include "board.h"
 #include "color.h"
+#include "move.h"
 using namespace std;
 
 //ERROR CLASSES
