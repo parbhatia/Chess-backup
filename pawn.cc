@@ -41,14 +41,15 @@ vector<Pos> Pawn::getPossibleMoves(vector<vector<*Piece>>* pieces) {
   vector<pos> vec = nullptr;
   
   if(color == Black) {
-    if((Pos.row + 1 <= 7) && (IsLegal({Pos.row + 1, Pos.col}, vector<vector<*Piece>>* pieces) == true) { //1 forward
+    if((Pos.row + 1 <= 7) && (IsLegal({Pos.row + 1, Pos.col}, vector<vector<*Piece>>* pieces) == true)) {//1 forward
       vec.push_back = {Pos.row + 1, Pos.col};
     }
     if(IsLegal({Pos.row + 2, Pos.col}, vector<vector<*Piece>>* pieces) == true) {  //2 forward
       vec.push_back = {Pos.row + 2, Pos.col};
     }
-    if((Pos.col >= 1) && (Pos.col <= 6)) {
-      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
+    //if((Pos.col >= 1) && (Pos.col <= 6)) {
+    if((Pos.row + 1 <= 7) && (Pos.col + 1 >= 0) && (Pos.col + 1 <= 7) &&
+       (IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
         vec.push_back = {Pos.row + 1, Pos.col + 1};
       }
       if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol left
