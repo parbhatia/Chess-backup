@@ -1,19 +1,20 @@
 #ifndef BOARD_H
 #define BOARD_H
-#include <vector>
+#include <string>
+#include "pos.h"
 
 class Cell;
 class Piece;
 class TextDisplay;
 
 class Board {
-	vector <Piece*> pieces; //current pieces on board
+	std::vector <Piece*> pieces; //current pieces on board
 	TextDisplay* td;
 	public:
-	void insert (string pos, piece);
-	void remove (string pos);
-	void pawn_checker(); //checks if any player's pawn are on the first or last row
-	void setup_all(); //setups the entire board
+	void insert (Pos pos, char letter);
+	void remove (Pos pos);
+	void updateTD(Pos oldpos, Pos newpos, char promo);
+	std::vector<std::vector<*Piece>> * getPieces();
 	Board();
 	~Board();
 	ostream operator<<(ostream &os, const Board &b);

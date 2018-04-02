@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "pos.h"
 using namespace std;
 
 class Cell;

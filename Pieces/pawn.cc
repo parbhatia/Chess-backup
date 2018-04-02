@@ -5,7 +5,7 @@ void Pawn::setPassant(bool val) {
   enPassant = val;
 }
 
-bool Pawn::IsLegal(Pos newPos, vector<vector<Piece*>>* pieces) {
+bool Pawn::IsLegal(Pos newPos, vector<vector<*Piece>>* pieces) {
   if(color == Black) {
     if(((Pos.col == newPos.col) && (Pos.row == (newPos.row - 1)) && (pieces[newPos.row][newPos.col] == nullptr)) ||  //1 forward
        ((hasMoved == false) && (Pos.col == newPos.col) && (Pos.row == (newPos.row - 2)) &&   //2 forward 
@@ -37,52 +37,52 @@ bool Pawn::IsLegal(Pos newPos, vector<vector<Piece*>>* pieces) {
 
       
        
-vector<Pos> Pawn::getPossibleMoves(vector<vector<Piece*>>* pieces) {
+vector<Pos> Pawn::getPossibleMoves(vector<vector<*Piece>>* pieces) {
   vector<pos> vec = nullptr;
   
   if(color == Black) {
-    if(IsLegal({Pos.row + 1, Pos.col}, vector<vector<Piece*>>* pieces) == true) {  //1 forward
+    if(IsLegal({Pos.row + 1, Pos.col}, vector<vector<*Piece>>* pieces) == true) {  //1 forward
       vec.push_back = {Pos.row + 1, Pos.col};
     }
-    if(IsLegal({Pos.row + 2, Pos.col}, vector<vector<Piece*>>* pieces) == true) {  //2 forward
+    if(IsLegal({Pos.row + 2, Pos.col}, vector<vector<*Piece>>* pieces) == true) {  //2 forward
       vec.push_back = {Pos.row + 2, Pos.col};
     }
     if((Pos.col >= 1) && (Pos.col <= 6)) {
-      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol right
+      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
         vec.push_back = {Pos.row + 1, Pos.col + 1};
       }
-      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol left
+      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol left
         vec.push_back = {Pos.row + 1, Pos.col - 1};
       }
     } else if(Pos.col == 0) { // if the pawn is in the very left part of the board
-      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol right
+      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
         vec.push_back = {Pos.row + 1, Pos.col + 1};
       }
     } else { // if the pawn is in the very right part of the board
-      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol right
+      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
         vec.push_back = {Pos.row + 1, Pos.col - 1};
       }
     }
   } else if(color == White) {
-    if(IsLegal({Pos.row - 1, Pos.col}, vector<vector<Piece*>>* pieces) == true) {  //1 forward
+    if(IsLegal({Pos.row - 1, Pos.col}, vector<vector<*Piece>>* pieces) == true) {  //1 forward
       vec.push_back = {Pos.row + 1, Pos.col};
     }
-    if(IsLegal({Pos.row - 2, Pos.col}, vector<vector<Piece*>>* pieces) == true) {  //2 forward
+    if(IsLegal({Pos.row - 2, Pos.col}, vector<vector<*Piece>>* pieces) == true) {  //2 forward
       vec.push_back = {Pos.row + 2, Pos.col};
     }
     if((Pos.col >= 1) && (Pos.col <= 6)) {
-      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol right
+      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
         vec.push_back = {Pos.row + 1, Pos.col + 1};
       }
-      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol left
+      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol left
         vec.push_back = {Pos.row + 1, Pos.col - 1};
       }
     } else if(Pos.col == 0) { // if the pawn is in the very left part of the board
-      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol right
+      if(IsLegal({Pos.row + 1, Pos.col + 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
         vec.push_back = {Pos.row + 1, Pos.col + 1};
       }
     } else { // if the pawn is in the very right part of the board
-      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<Piece*>>* pieces) == true) {  //1 diagnol right
+      if(IsLegal({Pos.row + 1, Pos.col - 1}, vector<vector<*Piece>>* pieces) == true) {  //1 diagnol right
         vec.push_back = {Pos.row + 1, Pos.col - 1};
       }
     }
