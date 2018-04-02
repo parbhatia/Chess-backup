@@ -14,7 +14,7 @@ class Board {
 	void insert (Pos pos, char letter);
 	void remove (Pos pos);
 	void updateTD(Pos oldpos, Pos newpos, char promo);
-	std::vector<std::vector<*Piece>> * getPieces();
+	std::vector<std::vector<Piece*>> * getPieces();
 	Board();
 	~Board();
 	friend ostream &operator<<(ostream &os, const Board &b);
