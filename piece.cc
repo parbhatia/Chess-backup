@@ -1,5 +1,4 @@
 #include "piece.h"
-#include "color.h"
 using namespace std;
 
 void Piece::setMoved(bool val) {
