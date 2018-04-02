@@ -1,5 +1,4 @@
 #include "pawn.h"
-#include "color.h"
 using namespace std;
 
 bool Pawn::getPassant() {
