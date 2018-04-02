@@ -16,18 +16,18 @@ class Board {
 	void insert (Pos pos, char letter) {
         int r = pos.row;
         int c = pos.col;
-        if (letter == "R") { pieces[r][c] = new Rook(White,pos); }
-        else if (letter == "N") { pieces[r][c] = new Knight(White,pos); }
-        else if (letter == "B") { pieces[r][c] = new Bishop(White,pos); }
-        else if (letter == "Q") { pieces[r][c] = new Queen(White,pos); }
-        else if (letter == "K") { pieces[r][c] = new King(White,pos); }
-        else if (letter == "P") { pieces[r][c] = new Pawn(White,pos); }
-        else if (letter == "r") { pieces[r][c] = new Rook(Black,pos); }
-        else if (letter == "n") { pieces[r][c] = new Knight(Black,pos); }
-        else if (letter == "b") { pieces[r][c] = new Bishop(Black,pos); }
-        else if (letter == "q") { pieces[r][c] = new Queen(Black,pos); }
-        else if (letter == "k") { pieces[r][c] = new King(Black,pos); }
-        else { pieces[r][c] = new Pawn(Black,pos); } //letter is "p"
+        if (letter == 'R') { pieces[r][c] = new Rook(White,pos); }
+        else if (letter == 'N') { pieces[r][c] = new Knight(White,pos); }
+        else if (letter == 'B') { pieces[r][c] = new Bishop(White,pos); }
+        else if (letter == 'Q') { pieces[r][c] = new Queen(White,pos); }
+        else if (letter == 'K') { pieces[r][c] = new King(White,pos); }
+        else if (letter == 'P') { pieces[r][c] = new Pawn(White,pos); }
+        else if (letter == 'r') { pieces[r][c] = new Rook(Black,pos); }
+        else if (letter == 'n') { pieces[r][c] = new Knight(Black,pos); }
+        else if (letter == 'b') { pieces[r][c] = new Bishop(Black,pos); }
+        else if (letter == 'q') { pieces[r][c] = new Queen(Black,pos); }
+        else if (letter == 'k') { pieces[r][c] = new King(Black,pos); }
+        else { pieces[r][c] = new Pawn(Black,pos); } //letter is 'p'
         //notify TextDisplay of insert
         td->insert(pos,letter);
     }

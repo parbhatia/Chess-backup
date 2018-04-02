@@ -5,14 +5,7 @@
 #include "textdisplay.h"
 #include "piece.h"
 #include "player.h"
-#include "humanPlayer.h"
-#include "computerPlayer.h"
 #include "board.h"
-#include "king.h"
-#include "knight.h"
-#include "pawn.h"
-#include "queen.h"
-#include "rook.h"
 using namespace std;
 
 //ERROR CLASSES
