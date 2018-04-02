@@ -36,7 +36,7 @@ class Board {
         //notify TextDisplay of remove
         td->remove(Pos pos);
     }
-    vector<vector<*Piece>> * getPieces() { return &pieces; }
+    vector<vector<Piece*>> * getPieces() { return &pieces; }
 	Board() { //sets up new 8x8 board
         td = new TextDisplay();
         for(int i=0; i<8; ++i) { 
@@ -57,7 +57,7 @@ class Board {
 	~Board();
 };
 
-friend stream &operator<<(ostream &os, const Board &b) {
+friend ostream &operator<<(ostream &os, const Board &b) {
     (*td)>>out;
     return out;
 }
