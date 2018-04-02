@@ -1,6 +1,10 @@
 #include "pawn.h"
 using namespace std;
 
+bool Pawn::getPassant() {
+  return enPassant;
+}
+
 void Pawn::setPassant(bool val) {
   enPassant = val;
 }
@@ -71,4 +75,4 @@ vector<Pos> Pawn::getPossibleMoves(vector<vector<Piece*>> pieces) {
   return vec;
 }
 
-Pawn::Pawn(Color c, Pos Pos, bool hasMoved = false, bool enPassant = false): Piece(c , Pos) {}
+Pawn::Pawn(Color c, Pos pos, bool hasMoved = false, bool enPassant = false): Piece(c , Pos, hasMoved), enPassant{enPassant} {}
