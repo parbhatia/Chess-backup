@@ -5,17 +5,21 @@ void Piece::setMoved(bool val) {
 	hasMoved = val;
 }
 
+bool Piece::getMoved() {
+	return hasMoved;
+}
+
 Color getColor(){
 	return color;
 }
 
 void Piece::updatePos(Pos newPos) {
-	Pos.row = newPos.row;
-	Pos.col = newPos.col;
+	pos.row = newPos.row;
+	pos.col = newPos.col;
 }
 
 Pos Piece::getPos() {
-	return Pos;
+	return pos;
 }
 
 bool Piece::getPassant() {
@@ -24,5 +28,5 @@ bool Piece::getPassant() {
 
 void Piece::setPassant(bool val) {}
 	
-Piece::Piece(Color c, Pos Pos, bool hasMoved = false, bool enPassant = false): color{c}, Pos{Pos}, 
+Piece::Piece(Color c, Pos pos, bool hasMoved = false, bool enPassant = false): color{c}, pos{pos}, 
 	hasMoved{hasMoved}, enPassant{enPassant} {}
