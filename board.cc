@@ -3,11 +3,13 @@
 #include <string>
 #include <vector>
 #include "pos.h"
+#include "textdisplay.h"
 using namespace std;
 
 class Cell;
 class Piece;
 class TextDisplay;
+class XWindow;
 
 class Board {
 	vector<vector<Piece*>> pieces; //all pieces on board
@@ -32,9 +34,9 @@ class Board {
         td->insert(pos,letter);
     }
 	void remove (Pos pos) {
-        pieces[r][c] = NULL;
+        pieces[pos.row][pos.col] = NULL;
         //notify TextDisplay of remove
-        td->remove(Pos pos);
+        td->remove(pos);
     }
     vector<vector<Piece*>> * getPieces() { return &pieces; }
 	Board() { //sets up new 8x8 board
@@ -48,16 +50,16 @@ class Board {
         }
     }
 
-    void updateTD(Pos oldpos, Pos newpos, char promo) {
-        td->move(oldpos,newpos,promotion);
+    void notify(Pos pos char promo) {
+        td->move(pos,promo);
     }
 
-    bool ischeck(Pos kpos, Pos 
+    bool ischeck(Pos kpos, Pos) {}
 
 	~Board();
 };
 
 friend ostream &operator<<(ostream &os, const Board &b) {
-    (*td)>>out;
+    out<<(*td);
     return out;
 }

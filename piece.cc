@@ -9,7 +9,7 @@ bool Piece::getMoved() {
 	return hasMoved;
 }
 
-Color getColor(){
+Color Piece::getColor(){
 	return color;
 }
 

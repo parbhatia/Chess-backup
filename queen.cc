@@ -14,7 +14,7 @@ bool Queen::IsLegal(Pos newPos, vector <vector<Piece*>> pieces) {  //Assuming ne
           }
         }
         return true;
-      } else if(getPos().col > newPos.col) {   //moving left-bottom
+      } else if(getPos().col > newPos.col) {   //moving left-bottoms
         for(int i = getPos().row + 1, y = getPos().col - 1; (i < newPos.row) && (y > newPos.col); ++i, --y) {
           if(pieces[i][y] != nullptr) {
             return false;
