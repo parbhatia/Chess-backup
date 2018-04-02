@@ -290,18 +290,8 @@ int main() {
             Pos new_pos = {newrow, newcol};
             //find out who's turn it is
             if (turn == White) {
-              // if (promotion != '') { //handle pawn promotion
-              //   try{
-              //     moving;
-              //     notify textdisplay!
-              //   }
-              //   catch(invalid_move &o) {
-              //     cout << "Invalid move" << endl;
-              //   }
-              // }
-              
               try{
-                  wPlayer->move(INSERT);
+                  wPlayer->move(old_pos, new_pos, promotion);
               }
               catch(invalid_move &o) {
                   cout << "Invalid move" << endl;
@@ -309,18 +299,8 @@ int main() {
               }
             }
             if (turn == Black) {
-              // if (promotion != "") { //handle pawn promotion
-              //   try{
-              //     moving;
-              //     notify textdisplay!
-              //   }
-              //   catch(invalid_move &o) {
-              //     cout << "Invalid move" << endl;
-              //   }
-              // }
-              
               try{
-                  bPlayer->move(INSERT);
+                  bPlayer->move(old_pos, new_pos, promotion);
               }
               catch(invalid_move &o) {
                   cout << "Invalid move" << endl;
