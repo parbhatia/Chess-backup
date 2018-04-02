@@ -41,7 +41,7 @@ vector<Pos> Pawn::getPossibleMoves(vector<vector<*Piece>>* pieces) {
   vector<pos> vec = nullptr;
   
   if(color == Black) {
-    if(IsLegal({Pos.row + 1, Pos.col}, vector<vector<*Piece>>* pieces) == true) {  //1 forward
+    if((Pos.row + 1 <= 7) && (IsLegal({Pos.row + 1, Pos.col}, vector<vector<*Piece>>* pieces) == true) { //1 forward
       vec.push_back = {Pos.row + 1, Pos.col};
     }
     if(IsLegal({Pos.row + 2, Pos.col}, vector<vector<*Piece>>* pieces) == true) {  //2 forward
