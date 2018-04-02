@@ -2,6 +2,7 @@
 #define BOARD_H
 #include <string>
 #include "pos.h"
+#include "color.h"
 
 class Cell;
 class Piece;

@@ -6,6 +6,7 @@
 #include "piece.h"
 #include "player.h"
 #include "board.h"
+#include "color.h"
 using namespace std;
 
 //ERROR CLASSES
@@ -48,7 +49,6 @@ Pos p7={1,6};
 Pos p8={1,7};
 //move to seperate file later
 
-enum Color{Black, White};
 enum Col{
   a=0,
   b=1,
