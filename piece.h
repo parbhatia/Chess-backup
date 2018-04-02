@@ -7,7 +7,6 @@ class Piece {
 	const Color color;
 	Pos pos;
 	bool hasMoved;
-	bool enPassant;
 	public:
 	void setMoved(bool val);
 	bool getMoved();
