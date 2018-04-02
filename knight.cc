@@ -1,7 +1,7 @@
 #include "knight.h"
 using namespace std;
 
-bool Knight::IsLegal(Pos newPos, vector <vector<*Piece>> pieces) {  //Assuming newPos is either empty or enemy
+bool Knight::IsLegal(Pos newPos, vector <vector<Piece*>> pieces) {  //Assuming newPos is either empty or enemy
 	if (((getPos().row == newPos.row + 2) && (getPos().col == newPos.col + 1)) ||  //moving 2 up - 1 left
 		((getPos().row == newPos.row + 1) && (getPos().col == newPos.col + 2)) ||  //moving 1 up - 2 left
 		((getPos().row == newPos.row + 2) && (getPos().col == newPos.col - 1)) ||  //moving 2 up - 1 right
