@@ -2,11 +2,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "pos.h"
-#include "textdisplay.h"
 using namespace std;
 
-class Cell;
 class Piece;
 class TextDisplay;
 class XWindow;

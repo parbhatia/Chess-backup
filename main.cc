@@ -2,19 +2,20 @@
 #include <string>
 #include <sstream>
 #include <map>
+#include "pos.h"
 #include "textdisplay.h"
 #include "piece.h"
 #include "player.h"
 #include "humanPlayer.h"
 #include "computerPlayer.h"
-#include "pos.h"
+#include "board.h"
+#include "piecepositions.h"
 #include "knight.h"
 #include "bishop.h"
 #include "king.h"
 #include "queen.h"
 #include "rook.h"
 #include "pawn.h"
-#include "board.h"
 #include "color.h"
 #include "move.h"
 #include "errors.h"
@@ -47,6 +48,7 @@ int main() {
       Player *bplayer = NULL;
       Pos wking_pos = {0,0}; //will be updated by setup
       Pos bking_pos = {0,0}; //will be updated by setup
+      bool game_finished = false;
       bool already_setup = false;
       bool setup_conditions_met = false;
       Color turn = White; // white goes first by default
@@ -82,7 +84,7 @@ int main() {
                 wking_pos.row = p.row;
                 wking_pos.col = p.col;
                 //REDISPLAY BOARD
-                b >> cout;
+                cout << b;
               }
             }
             else if (letter == 'k') {
@@ -96,7 +98,7 @@ int main() {
                 bking_pos.row = p.row;
                 bking_pos.row = p.col;
                 //REDISPLAY BOARD
-                b >> cout;
+                cout << b;
               }
             }
             else if (letter == "P") || letter == "p") {
@@ -112,7 +114,7 @@ int main() {
             else {
               b.insert(p,letter);
               //REDISPLAY BOARD
-              b >> cout;
+              cout << b;
             }
           }
           if (cmd == "=") {
@@ -130,7 +132,7 @@ int main() {
               if (true) {//turn king set flags off!
               }
               //REDISPLAY BOARD
-              b >> cout;
+              cout << b;
             }
           }
           if (cmd == "done") {
@@ -177,7 +179,7 @@ int main() {
         if (bl == "computer4") {};
         if (!already_setup) {
           //inserting white player pieces
-          b.insert(R1,'R');
+          b.insert({7,0},'R');
           b.insert(N1,'N');
           b.insert(B1,'B');
           b.insert(Q,'Q');
@@ -248,7 +250,7 @@ int main() {
             //find out who's turn it is
             if (turn == White) {
               try{
-                  wPlayer->move(old_pos, new_pos, promotion);
+                  wplayer->move(old_pos, new_pos, promotion);
               }
               catch(invalid_move &o) {
                   cout << "Invalid move" << endl;
@@ -257,7 +259,7 @@ int main() {
             }
             if (turn == Black) {
               try{
-                  bPlayer->move(old_pos, new_pos, promotion);
+                  bplayer->move(old_pos, new_pos, promotion);
               }
               catch(invalid_move &o) {
                   cout << "Invalid move" << endl;
@@ -268,7 +270,7 @@ int main() {
             ////// UPDATE TEXTDISPLAY //////
             b.updateTD(oldpos,newpos,promotion);
             ///// REDISPLAY TEXTDISPLAY ////
-            b>>out;
+            cout<<b;
             ///////// SWITCH TURNS /////////
             if (turn == White) turn = Black;
             if (turn == Black) turn = White;

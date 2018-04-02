@@ -1,12 +1,11 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <string>
-#include "pos.h"
 #include "color.h"
+#include "pos.h"
+#include "textdisplay.h"
 
-class Cell;
 class Piece;
-class TextDisplay;
 
 class Board {
 	std::vector <Piece*> pieces; //current pieces on board
