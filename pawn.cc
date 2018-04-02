@@ -71,4 +71,4 @@ vector<Pos> Pawn::getPossibleMoves(vector<vector<*Piece>>* pieces) {
   return vec;
 }
 
-Pawn::Pawn(Color c, Pos Pos, bool hasMoved = false, bool enPassant = false): Piece(c , Pos) {}
+Pawn::Pawn(Color c, Pos Pos, bool hasMoved, bool enPassant): Piece(c , Pos, hasMoved, enPassant) {}
