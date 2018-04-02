@@ -72,17 +72,17 @@ int main() {
             char col; //col pos
             int row; //row pos
             cin >> letter >> col >> row;
-            Pos p = {8-row,colmap.at(col)};
+            Pos pos = {8-row,colmap.at(col)};
             if (letter == 'K') {
               if (w_kingset) {
                 cout << "King already assigned." << endl;
               }
               else {
-                b.insert(p,letter);
+                b.insert(pos,letter);
                 w_kingset = true;
                 //set white player king position
-                wking_pos.row = p.row;
-                wking_pos.col = p.col;
+                wking_pos.row = pos.row;
+                wking_pos.col = pos.col;
                 //REDISPLAY BOARD
                 cout << b;
               }
@@ -92,27 +92,27 @@ int main() {
                 cout << "King already assigned." << endl;
               }
               else {
-                b.insert(p,letter);
+                b.insert(pos,letter);
                 b_kingset = true;
                 //set black player king position
-                bking_pos.row = p.row;
-                bking_pos.row = p.col;
+                bking_pos.row = pos.row;
+                bking_pos.row = pos.col;
                 //REDISPLAY BOARD
                 cout << b;
               }
             }
-            else if (letter == "P") || letter == "p") {
-              if (p.row != 0 && p.row != 7) { //checks if pawn is not in end rows
-                b.insert(p,letter);
+            else if (letter == 'P' || letter == 'p') {
+              if (pos.row != 0 && pos.row != 7) { //checks if pawn is not in end rows
+                b.insert(pos,letter);
                 //REDISPLAY BOARD
-                b >> cout;
+                cout << b;
               }
               else {
                 cout << "Invalid pawn placement." << endl;
               }
             }
             else {
-              b.insert(p,letter);
+              b.insert(pos,letter);
               //REDISPLAY BOARD
               cout << b;
             }
@@ -126,9 +126,9 @@ int main() {
             char col;
             int row;
             cin >> col >> row;
-            Pos p = {8-row,colmap.at(col)};
-            if (b.getPieces()[p.row][p.col] != NULL) { //take action only if there is a piece at pos
-              b.remove(p);
+            Pos pos = {8-row,colmap.at(col)};
+            if (b.getPieces()[pos.row][pos.col] != NULL) { //take action only if there is a piece at pos
+              b.remove(pos);
               if (true) {//turn king set flags off!
               }
               //REDISPLAY BOARD
@@ -218,8 +218,8 @@ int main() {
         }
         else { //already setup is true
           //Players set their kings
-          wplayer->setKing(b.getPieces()[][]);
-          bplayer->setKing(b.getPieces()[][]);
+          //wplayer->setKing(b.getPieces()[][]);
+          //bplayer->setKing(b.getPieces()[][]);
         }
         while (!game_finished) {
           if (cin.eof()) { //if player decides to end program mid game
@@ -268,7 +268,7 @@ int main() {
             }
 
             ////// UPDATE TEXTDISPLAY //////
-            b.updateTD(oldpos,newpos,promotion);
+            //b.updateTD(old_pos,new_pos,promotion);
             ///// REDISPLAY TEXTDISPLAY ////
             cout<<b;
             ///////// SWITCH TURNS /////////
