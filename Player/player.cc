@@ -1,6 +1,21 @@
 #include "player.h"
 #include "pos.h"
 
+void makeTheMove(Piece* moved, target, Board* b){
+	const Pos mPos = moved->getPos();
+	const Pos tPos = target->getPos();
+	Move* m = new Move(mPos, tPos, target);
+	b->getMoves()->emplace_back(m); //info about move is pushed to moved vec in board
+	b->getPieces()[tPos.row][tPos.col] = moved; //target cell points to moved piece
+	b->getPieces()[mPos.row][mPos.col] = NULL; //freeing old cell
+}
+
+bool outOfRange(const Pos p) {
+	if (p.row > 7 || p.col > 7) return true;
+	else if (p.row < 0 || p.col < 0) return true;
+return false;
+}
+
 bool isChecked(King* k, vector<Piece*> pieces) {
 	const Pos KingPos = k->getPos();
 	for(auto &p:pieces) { //going through every piece on board
