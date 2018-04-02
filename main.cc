@@ -5,6 +5,15 @@
 #include "textdisplay.h"
 #include "piece.h"
 #include "player.h"
+#include "humanPlayer.h"
+#include "computerPlayer.h"
+#include "pos.h"
+#include "knight.h"
+#include "bishop.h"
+#include "king.h"
+#include "queen.h"
+#include "rook.h"
+#include "pawn.h"
 #include "board.h"
 #include "color.h"
 using namespace std;
@@ -200,21 +209,21 @@ int main() {
       }//end of setup
       if (cmd == "game") {
         //CREATE PLAYERS
-        string w;
-        string b;
-        cin >> w >> b;
+        string wh;
+        string bl;
+        cin >> wh >> bl;
         //White player
-        if (w == "human") { wplayer = HumanPlayer(White, &b, NULL); }
-        if (w == "computer1") {};
-        if (w == "computer2") {};
-        if (w == "computer3") {};
-        if (w == "computer4") {};
+        if (wh == "human") { wplayer = HumanPlayer(White, &b, NULL); }
+        if (wh == "computer1") {};
+        if (wh == "computer2") {};
+        if (wh == "computer3") {};
+        if (wh == "computer4") {};
         //Black player
-        if (b == "human") { bplayer = HumanPlayer(Black, &b, NULL); }
-        if (b == "computer1") {};
-        if (b == "computer2") {};
-        if (b == "computer3") {};
-        if (b == "computer4") {};
+        if (bl == "human") { bplayer = HumanPlayer(Black, &b, NULL); }
+        if (bl == "computer1") {};
+        if (bl == "computer2") {};
+        if (bl == "computer3") {};
+        if (bl == "computer4") {};
         if (!already_setup) {
           //inserting white player pieces
           b.insert(R1,'R');
@@ -261,16 +270,17 @@ int main() {
         }
         while (!game_finished) {
           if (cin.eof()) { //if player decides to end program mid game
-            end game;
-            print scoreboard;
+            cout << "Final Score:" << endl;
+            cout << "White: " << wpoints << endl;
+            cout << "Black: " << bpoints << endl;
             return;
           }
           if (cmd == "resign") {
             game_finished = true; //will break from game on next iteraiton
-            update points;
-            cout << "Final Score:" <, endl;
-            cout << "White: " << wpoints << endl;
-            cout << "Black: " << bpoints << endl;
+            //update player points
+            if (turn == White) ++bpoints;
+            else ++wpoints;
+            break;
           }
           if (cmd == "move") {
             string s;
