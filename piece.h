@@ -2,6 +2,7 @@
 #define PIECE_H
 #include <vector>
 #include "pos.h"
+#include "color.h"
 
 class Piece {
 	const Color color;
