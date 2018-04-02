@@ -10,7 +10,7 @@ class Piece;
 class TextDisplay;
 
 class Board {
-	vector<vector<*Piece>> pieces; //all pieces on board
+	vector<vector<Piece*>> pieces; //all pieces on board
 	TextDisplay* td = NULL;
 	public:
 	void insert (Pos pos, char letter) {
