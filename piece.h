@@ -18,7 +18,7 @@ class Piece {
 	virtual void setPassant(bool val);
 	virtual bool IsLegal(Pos newPos, vector <vector<Piece*>> pieces) = 0;
 	virtual vector<Pos> getPossibleMoves(vector<vector<Piece*>> pieces) = 0;
-	Piece(Color c, Pos Pos, bool hasMoved, bool enPassant);
+	Piece(Color c, Pos Pos, bool hasMoved);
 	friend ostream& operator<<(ostream& out, const Piece& p);
 	//No need a destructor since there is no heap allocated field and default dest is enough
 };
