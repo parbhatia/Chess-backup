@@ -5,7 +5,7 @@
 
 class HumanPlayer: public Player {
 	public:
-	void move(Pos oldPos, Pos newPos, string permission) override;
+	void move(Pos oldPos, Pos newPos, char permission) override;
 	HumanPlayer(Color color, Board* B, King* king = NULL);
 	~HumanPlayer();
 };

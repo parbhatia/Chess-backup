@@ -1,7 +1,7 @@
 #include "humanPlayer.h"
 #include "pos.h"
 
-HumanPlayer::void move(Pos oldPos, newPos, string prm){
+HumanPlayer::void move(Pos oldPos, newPos, char prm){
 	Piece* curPiece = B.getPieces[oldPos.row][oldPos.col];
 	Piece* target = B.getPieces[newPos.row][newPos.col];//piece at newPos
 
