@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <map>
 #include "textdisplay.h"
 #include "piece.h"
 #include "player.h"
@@ -19,37 +20,38 @@ class invalid_move {}; //for catching invalid move
 //transfer to seperate error file
 
 //STANDARD PIECE POSITIONS
-Pos N1={7,1}
+Pos R1={7,0};
+Pos N1={7,1};
 Pos B1={7,2};
 Pos Q={7,3};
 Pos K={7,4};
 Pos B2={7,5};
-Pos N2={7,6}
+Pos N2={7,6};
 Pos R2={7,7};
 Pos P1={6,0};
-Pos P2={6,1}
+Pos P2={6,1};
 Pos P3={6,2};
 Pos P4={6,3};
 Pos P5={6,4};
 Pos P6={6,5};
-Pos P7={6,6}
+Pos P7={6,6};
 Pos P8={6,7};
 
 Pos r1={0,0};
-Pos n1={0,1}
+Pos n1={0,1};
 Pos b1={0,2};
 Pos q={0,3};
 Pos k={0,4};
 Pos b2={0,5};
-Pos n2={0,6}
+Pos n2={0,6};
 Pos r2={0,7};
 Pos p1={1,0};
-Pos p2={1,1}
+Pos p2={1,1};
 Pos p3={1,2};
 Pos p4={1,3};
 Pos p5={1,4};
 Pos p6={1,5};
-Pos p7={1,6}
+Pos p7={1,6};
 Pos p8={1,7};
 //move to seperate file later
 
@@ -74,7 +76,7 @@ int main() {
   ////////////////
 
   //creating map of column commands to make parsing column positions easier
-  std::map<char, Col> colmap;
+  map<char, Col> colmap;
   colmap['a'] = Col::a;
   colmap['b'] = Col::b;
   colmap['c'] = Col::c;
@@ -94,11 +96,11 @@ int main() {
       Pos bking_pos = {0,0}; //will be updated by setup
       bool already_setup = false;
       bool setup_conditions_met = false;
-      color turn = white // white goes first by default
+      Color turn = White; // white goes first by default
       /////////////////////////////////////////////////
       cin >> cmd;
-      if (cin.eof() { //end program command
-        cout << "Final Score:" <, endl;
+      if (cin.eof()) { //end program command
+        cout << "Final Score:" << endl;
         cout << "White: " << wpoints << endl;
         cout << "Black: " << bpoints << endl;
         return;
@@ -116,7 +118,7 @@ int main() {
             int row; //row pos
             cin >> letter >> col >> row;
             Pos p = {8-row,colmap.at(col)};
-            if (letter == "K") {
+            if (letter == 'K') {
               if (w_kingset) {
                 cout << "King already assigned." << endl;
               }
@@ -130,7 +132,7 @@ int main() {
                 b >> cout;
               }
             }
-            else if (letter == "k") {
+            else if (letter == 'k') {
               if (b_kingset) {
                 cout << "King already assigned." << endl;
               }
@@ -172,18 +174,19 @@ int main() {
             Pos p = {8-row,colmap.at(col)};
             if (b.getPieces()[p.row][p.col] != NULL) { //take action only if there is a piece at pos
               b.remove(p);
-              if ()
+              if (true) {//turn king set flags off!
+              }
               //REDISPLAY BOARD
               b >> cout;
             }
           }
           if (cmd == "done") {
             //Check setup conditions
-            if (w.getking() == NULL){
+            if (wplayer->getKing() == NULL){
               cout << "White king not set." << endl;
               w_kingset = false;
             }
-            if (b.getking() == NULL) {
+            if (bplayer->getKing() == NULL) {
               cout << "Black king not set." << endl;
               b_kingset = false;
             }
@@ -208,13 +211,13 @@ int main() {
         string b;
         cin >> w >> b;
         //White player
-        if (w == "human") { wplayer = Human(White, &b, NULL) };
+        if (w == "human") { wplayer = HumanPlayer(White, &b, NULL); }
         if (w == "computer1") {};
         if (w == "computer2") {};
         if (w == "computer3") {};
         if (w == "computer4") {};
         //Black player
-        if (b == "human") { bplayer = Human(Black, &b, NULL) };
+        if (b == "human") { bplayer = HumanPlayer(Black, &b, NULL); }
         if (b == "computer1") {};
         if (b == "computer2") {};
         if (b == "computer3") {};
