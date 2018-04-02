@@ -4,6 +4,7 @@
 #include <vector>
 #include "piece.h"
 #include "pos.h"
+#include "color.h"
 
 class Pawn: public Piece {
 	bool enPassant;
