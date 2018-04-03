@@ -116,3 +116,5 @@ vector<Pos> King::getPossibleMoves(vector <vector<Piece*>> pieces) {
 		vec.push_back = {0,6};
 	}
 }
+
+King::King(Color c, Pos pos, bool hasMoved) : Piece{c,pos} {}
