@@ -76,7 +76,7 @@ bool Queen::IsLegal(Pos newPos, vector <vector<Piece*>> pieces) {  //Assuming ne
   }
 }
 
-vector<Pos> Queen::getPossibleMoves(vector <vector<Piece*>> pieces) { //We need to check destination cell if it's empty or enemy
+vector<Pos> Queen::getPossibleMoves(vector<vector<Piece*>> pieces) { //We need to check destination cell if it's empty or enemy
     vector<Pos> vec;
 
     for(int i = getPos().col + 1; i <= 7; ++i) { //check right
@@ -154,4 +154,4 @@ vector<Pos> Queen::getPossibleMoves(vector <vector<Piece*>> pieces) { //We need 
   return vec;
 }
 
-Queen::Queen(Color c, Pos pos, bool hasMoved = false): Piece{c , pos, hasMoved} {}
+Queen::Queen(Color c, Pos pos, bool hasMoved): Piece{c, pos, hasMoved} {}
